@@ -3,803 +3,1605 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#fffaf2">
-<title>DELEITE | Yogur Griego & Pudín de Chía</title>
+<meta name="theme-color" content="#fbf8f2">
+<title>DELEITE</title>
 
 <style>
-*{box-sizing:border-box}
 :root{
-  --black:#171717;
-  --cream:#fffaf2;
-  --soft:#f5eee3;
-  --green:#486b50;
-  --orange:#e8944a;
-  --gray:#777;
-  --line:#e8dfd3;
+ --bg:#fbf8f2;
+ --white:#fff;
+ --black:#151515;
+ --gray:#777;
+ --line:#e4ddd3;
+ --soft:#f1ebe2;
+ --green:#21ad50;
 }
+
+*{box-sizing:border-box}
+
 html{scroll-behavior:smooth}
+
 body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  color:var(--black);
-  background:var(--cream);
-  padding-bottom:110px;
+ margin:0;
+ background:var(--bg);
+ color:var(--black);
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+ padding-bottom:105px;
 }
+
 button,input,textarea{font:inherit}
 button{cursor:pointer}
 
+.page{
+ max-width:1050px;
+ margin:auto;
+ padding:12px 16px 100px;
+}
+
 /* CABECERA */
-header{
-  padding:25px 20px 8px;
-  text-align:center;
+
+.header{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:15px;
+ padding:5px 0 12px;
 }
+
 .logo{
-  width:120px;
-  height:120px;
-  border:2px solid #111;
-  border-radius:50%;
-  margin:auto;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  background:white;
+ width:100px;
+ height:100px;
+ border:2px solid #111;
+ border-radius:50%;
+ background:white;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ flex-shrink:0;
 }
+
 .logo strong{
-  font-size:22px;
-  line-height:1;
-  white-space:nowrap;
+ font-size:23px;
+ line-height:1;
 }
-.logo span{
-  font-size:5px;
-  font-weight:800;
-  margin-top:7px;
-  white-space:nowrap;
+
+.logo small{
+ font-size:5px;
+ font-weight:900;
+ margin-top:6px;
+ white-space:nowrap;
+}
+
+.nav{
+ display:flex;
+ gap:35px;
+ justify-content:center;
+ flex:1;
+ font-size:13px;
+}
+
+.nav span:first-child{
+ font-weight:900;
+ border-bottom:2px solid #111;
+ padding-bottom:5px;
+}
+
+.right{
+ display:flex;
+ gap:17px;
+ align-items:center;
+ font-size:27px;
+}
+
+.carticon{
+ position:relative;
+}
+
+.cartcount{
+ position:absolute;
+ top:-9px;
+ right:-10px;
+ width:22px;
+ height:22px;
+ border-radius:50%;
+ background:#111;
+ color:white;
+ font-size:11px;
+ display:grid;
+ place-items:center;
+ font-weight:900;
 }
 
 /* HERO */
+
 .hero{
-  padding:25px 20px 18px;
-  max-width:700px;
-  margin:auto;
-}
-.kicker{
-  letter-spacing:7px;
-  font-size:13px;
-  margin-bottom:12px;
-}
-h1{
-  font-size:48px;
-  line-height:.95;
-  margin:0 0 15px;
-  letter-spacing:-2px;
-}
-.sub{
-  color:#6d6d6d;
-  font-size:17px;
-}
-.badges{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:18px;
-}
-.badge{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:100px;
-  padding:9px 13px;
-  font-size:13px;
-  font-weight:700;
+ display:grid;
+ grid-template-columns:.8fr 1.2fr;
+ gap:25px;
+ align-items:center;
+ padding:15px 0 25px;
 }
 
-/* ILUSTRACIÓN */
-.visual{
-  margin-top:22px;
-  height:270px;
-  border-radius:32px;
-  background:var(--soft);
-  position:relative;
-  overflow:hidden;
+.heroText{
+ padding-left:5px;
 }
-.cup{
-  position:absolute;
-  width:145px;
-  height:220px;
-  left:22px;
-  bottom:-5px;
-  border:5px solid #aaa;
-  border-radius:25px 25px 40px 40px;
-  background:
-    linear-gradient(
-      to bottom,
-      #f0e5d2 0 38%,
-      #e76562 38% 52%,
-      #f0e5d2 52% 100%
-    );
+
+.arma{
+ font-size:14px;
+ letter-spacing:7px;
+ margin-bottom:12px;
 }
-.cuplogo{
-  position:absolute;
-  width:80px;
-  height:80px;
-  border:2px solid #111;
-  background:white;
-  border-radius:50%;
-  left:32px;
-  top:75px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  font-size:13px;
-  font-weight:900;
+
+.hero h1{
+ font-size:53px;
+ line-height:.93;
+ letter-spacing:-2px;
+ margin:0 0 15px;
 }
-.cuplogo small{font-size:4px;margin-top:3px}
-.topcup{
-  position:absolute;
-  width:88px;
-  height:135px;
-  left:185px;
-  bottom:5px;
-  border:5px solid #aaa;
-  border-radius:20px 20px 35px 35px;
-  background:white;
+
+.heroSubtitle{
+ font-size:20px;
+ letter-spacing:4px;
+ line-height:1.4;
 }
-.topcup:after{
-  content:"TOPPINGS";
-  position:absolute;
-  width:100%;
-  text-align:center;
-  top:55px;
-  font-size:9px;
-  font-weight:800;
+
+.benefits{
+ display:flex;
+ gap:22px;
+ margin-top:23px;
 }
+
+.benefit{
+ text-align:center;
+ font-size:9px;
+ font-weight:800;
+}
+
+.bicon{
+ width:43px;
+ height:43px;
+ border:2px solid #111;
+ border-radius:50%;
+ display:grid;
+ place-items:center;
+ font-size:20px;
+ margin:0 auto 6px;
+}
+
+/* VASOS HERO */
+
+.productScene{
+ height:370px;
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:30px;
+ position:relative;
+ overflow:hidden;
+ box-shadow:0 15px 35px rgba(0,0,0,.07);
+}
+
+.bigCup{
+ position:absolute;
+ width:185px;
+ height:290px;
+ left:22%;
+ bottom:-10px;
+ border:5px solid #aaa;
+ border-top:6px solid #999;
+ border-radius:24px 24px 48px 48px;
+ overflow:hidden;
+ background:white;
+ transform:rotate(-2deg);
+}
+
+.yogurtTop,
+.yogurtBottom{
+ position:absolute;
+ left:0;
+ right:0;
+ background:#eee4d5;
+}
+
+.yogurtTop{
+ top:0;
+ height:39%;
+}
+
+.fruitLayer{
+ position:absolute;
+ top:39%;
+ height:25%;
+ left:0;
+ right:0;
+ background:
+ radial-gradient(circle at 15% 40%,#c12f35 0 10px,transparent 11px),
+ radial-gradient(circle at 35% 65%,#e24b4b 0 13px,transparent 14px),
+ radial-gradient(circle at 55% 35%,#50286e 0 9px,transparent 10px),
+ radial-gradient(circle at 78% 62%,#e7b63d 0 13px,transparent 14px),
+ #fff;
+}
+
+.yogurtBottom{
+ bottom:0;
+ height:36%;
+}
+
+.cupLogo{
+ position:absolute;
+ width:103px;
+ height:103px;
+ left:50%;
+ top:49%;
+ transform:translate(-50%,-50%);
+ border:2px solid #111;
+ border-radius:50%;
+ background:rgba(255,255,255,.9);
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ z-index:3;
+}
+
+.cupLogo b{font-size:20px}
+.cupLogo small{
+ font-size:4.5px;
+ font-weight:900;
+ margin-top:5px;
+}
+
+.toppingCup{
+ position:absolute;
+ width:112px;
+ height:165px;
+ right:15%;
+ bottom:20px;
+ border:5px solid #aaa;
+ border-radius:20px 20px 35px 35px;
+ background:
+ radial-gradient(circle at 20% 35%,#a46c30 0 7px,transparent 8px),
+ radial-gradient(circle at 40% 50%,#d6a459 0 8px,transparent 9px),
+ radial-gradient(circle at 70% 40%,#80582d 0 8px,transparent 9px),
+ radial-gradient(circle at 60% 70%,#bd843b 0 9px,transparent 10px),
+ #f1d59b;
+}
+
 .honey{
-  position:absolute;
-  width:55px;
-  height:90px;
-  right:15px;
-  bottom:5px;
-  border:5px solid #aaa;
-  border-radius:17px 17px 25px 25px;
-  background:linear-gradient(#fff 0 35%,#e1a13c 35%);
-}
-.honey:after{
-  content:"MIEL";
-  position:absolute;
-  top:9px;
-  width:100%;
-  text-align:center;
-  font-size:10px;
+ position:absolute;
+ width:67px;
+ height:100px;
+ right:5%;
+ bottom:20px;
+ border:4px solid #aaa;
+ border-radius:15px 15px 25px 25px;
+ background:linear-gradient(to bottom,#fff 0 35%,#dfa23b 35%);
 }
 
-/* CONTENIDO */
-.builder{
-  max-width:700px;
-  margin:auto;
-  padding:10px 20px 30px;
+.honey:before{
+ content:"MIEL";
+ position:absolute;
+ top:9px;
+ width:100%;
+ text-align:center;
+ font-size:9px;
+ font-weight:900;
 }
+
+.sceneNote{
+ position:absolute;
+ right:25px;
+ top:25px;
+ font-size:12px;
+ color:#777;
+}
+
+/* PASOS */
+
 .step{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:25px;
-  padding:22px;
-  margin:14px 0;
+ background:white;
+ border:1px solid var(--line);
+ border-radius:22px;
+ padding:18px;
+ margin:13px 0;
+ box-shadow:0 7px 20px rgba(0,0,0,.035);
 }
-.stepnum{
-  display:inline-flex;
-  width:30px;
-  height:30px;
-  align-items:center;
-  justify-content:center;
-  background:var(--black);
-  color:white;
-  border-radius:50%;
-  font-weight:800;
-  margin-right:7px;
+
+.stepHeader{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:15px;
+ margin-bottom:15px;
 }
+
+.stepTitle{
+ display:flex;
+ align-items:center;
+ gap:13px;
+}
+
+.number{
+ width:43px;
+ height:43px;
+ border-radius:50%;
+ background:#111;
+ color:white;
+ display:grid;
+ place-items:center;
+ font-size:20px;
+ font-weight:900;
+ flex-shrink:0;
+}
+
 .step h2{
-  display:inline;
-  font-size:21px;
+ margin:0;
+ font-size:24px;
 }
-.hint{
-  color:var(--gray);
-  font-size:13px;
-  margin:10px 0 15px;
+
+.help{
+ color:#777;
+ font-size:13px;
 }
-.options{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
+
+/* TARJETAS */
+
+.cards{
+ display:grid;
+ gap:10px;
 }
-.option{
-  border:1.5px solid var(--line);
-  background:#fff;
-  border-radius:16px;
-  padding:15px 10px;
-  text-align:center;
-  transition:.15s;
-  font-weight:700;
+
+.two{grid-template-columns:repeat(2,1fr)}
+.five{grid-template-columns:repeat(5,1fr)}
+.four{grid-template-columns:repeat(4,1fr)}
+
+.card{
+ position:relative;
+ border:1.5px solid #ddd4ca;
+ background:#fff;
+ border-radius:15px;
+ padding:0;
+ overflow:hidden;
+ text-align:left;
+ min-height:120px;
 }
-.option small{
-  display:block;
-  color:#888;
-  font-size:11px;
-  margin-top:4px;
+
+.card.selected{
+ border:2px solid #111;
 }
-.option.selected{
-  border:2px solid var(--green);
-  background:#edf4ee;
-  transform:scale(.99);
+
+.photo{
+ height:88px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:55px;
+ background:#f6f1e9;
+ overflow:hidden;
 }
-.emoji{
-  display:block;
-  font-size:30px;
-  margin-bottom:6px;
+
+.yogurtPhoto{
+ background:
+ radial-gradient(ellipse at 50% 85%,#eee2ce 0 38%,transparent 39%),
+ linear-gradient(#faf7f1,#eee7dd);
+}
+
+.chiaPhoto{
+ background:
+ radial-gradient(circle,#55483d 0 1px,transparent 2px) 0 0/8px 8px,
+ #d7c5ae;
+}
+
+.fruitPhoto{
+ background:#f5f1eb;
+}
+
+.granolaPhoto{
+ background:
+ radial-gradient(circle at 20% 40%,#a9783d 0 7px,transparent 8px),
+ radial-gradient(circle at 50% 60%,#cda66d 0 8px,transparent 9px),
+ radial-gradient(circle at 75% 35%,#8c612f 0 7px,transparent 8px),
+ #ead8b5;
+}
+
+.cerealPhoto{
+ background:
+ radial-gradient(circle at 25% 45%,transparent 0 6px,#b7864f 7px 11px,transparent 12px),
+ radial-gradient(circle at 65% 55%,transparent 0 6px,#d0a36d 7px 11px,transparent 12px),
+ #f3e3c7;
+}
+
+.nutsPhoto{
+ background:
+ radial-gradient(ellipse at 25% 50%,#a76c42 0 12px,transparent 13px),
+ radial-gradient(ellipse at 55% 45%,#d6b078 0 12px,transparent 13px),
+ radial-gradient(ellipse at 78% 62%,#8c5d39 0 12px,transparent 13px),
+ #eee0ca;
+}
+
+.oatsPhoto{
+ background:
+ repeating-linear-gradient(25deg,#d9bd87 0 4px,#f1dba9 5px 9px);
+}
+
+.cardText{
+ padding:10px 11px 12px;
+}
+
+.cardText strong{
+ display:block;
+ font-size:15px;
+}
+
+.cardText small{
+ display:block;
+ color:#777;
+ font-size:11px;
+ line-height:1.35;
+ margin-top:3px;
+}
+
+.check{
+ position:absolute;
+ right:8px;
+ top:8px;
+ width:28px;
+ height:28px;
+ border-radius:50%;
+ border:2px solid #d2d2d2;
+ background:white;
+ display:grid;
+ place-items:center;
+ color:transparent;
+ font-size:12px;
+ font-weight:900;
+}
+
+.selected .check{
+ background:#111;
+ border-color:#111;
+ color:white;
 }
 
 /* CANTIDAD */
-.qty{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border:1px solid var(--line);
-  padding:10px 12px;
-  border-radius:16px;
-}
-.qtycontrol{
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
-.qtycontrol button{
-  width:38px;
-  height:38px;
-  border:0;
-  border-radius:50%;
-  background:#111;
-  color:white;
-  font-size:22px;
-}
-.qtycontrol strong{font-size:20px}
 
-/* RESUMEN */
-.summary{
-  background:var(--black);
-  color:white;
-  border-radius:25px;
-  padding:22px;
-  margin-top:15px;
+.quantity{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:15px;
 }
-.summary h3{margin:0 0 12px}
-.summary p{
-  margin:7px 0;
-  color:#ddd;
-  font-size:14px;
+
+.qty{
+ display:flex;
+ background:var(--soft);
+ border-radius:100px;
+ overflow:hidden;
+ align-items:center;
 }
-.summary .price{
-  font-size:30px;
-  color:white;
-  font-weight:900;
-  margin-top:15px;
+
+.qty button{
+ border:0;
+ background:transparent;
+ width:53px;
+ height:45px;
+ font-size:27px;
 }
-.add{
-  width:100%;
-  border:0;
-  border-radius:16px;
-  background:var(--orange);
-  padding:16px;
-  font-weight:900;
-  margin-top:15px;
-  color:#111;
+
+.qty strong{
+ display:grid;
+ place-items:center;
+ width:57px;
+ height:45px;
+ background:white;
+ font-size:21px;
+}
+
+/* PAGO Y ENTREGA */
+
+.double{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:13px;
+}
+
+.choice{
+ width:100%;
+ border:1.5px solid #ddd4ca;
+ background:#fff;
+ border-radius:15px;
+ padding:14px;
+ margin-top:8px;
+ display:flex;
+ align-items:center;
+ gap:12px;
+ text-align:left;
+ position:relative;
+}
+
+.choice.selected{
+ border:2px solid #111;
+}
+
+.choiceIcon{
+ font-size:29px;
+}
+
+.choice strong{
+ display:block;
+ font-size:14px;
+}
+
+.choice small{
+ color:#777;
+ font-size:11px;
+ display:block;
+ margin-top:3px;
 }
 
 /* CARRITO */
-.cart{
-  display:none;
-  max-width:700px;
-  margin:0 auto;
-  padding:20px;
+
+.add{
+ width:100%;
+ border:0;
+ background:#111;
+ color:white;
+ border-radius:15px;
+ padding:15px;
+ font-weight:900;
+ font-size:15px;
 }
-.cart.show{display:block}
-.cart h2{font-size:32px}
-.cartitem{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:16px;
-  margin:10px 0;
+
+.cartEmpty{
+ color:#888;
+ text-align:center;
+ padding:18px 5px;
 }
-.cartitem strong{font-size:16px}
-.cartitem p{
-  color:#777;
-  font-size:13px;
-  line-height:1.5;
+
+.cartItem{
+ border-top:1px solid #eee5dc;
+ padding:14px 0;
 }
+
+.cartItem:first-child{
+ border-top:0;
+}
+
+.cartItem strong{
+ font-size:14px;
+}
+
+.cartItem p{
+ color:#777;
+ font-size:12px;
+ line-height:1.5;
+ margin:6px 0;
+}
+
 .remove{
-  border:0;
-  background:none;
-  text-decoration:underline;
-  color:#777;
-  padding:0;
+ border:0;
+ background:none;
+ color:#9a4141;
+ padding:0;
+ font-size:12px;
+ font-weight:800;
 }
 
 /* DATOS */
+
 .form{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:25px;
-  padding:20px;
-  margin-top:20px;
-}
-.form h3{margin-top:0}
-input,textarea{
-  width:100%;
-  padding:14px;
-  border:1px solid #ddd;
-  border-radius:13px;
-  margin:6px 0;
-  background:#fafafa;
-}
-textarea{
-  min-height:85px;
-  resize:vertical;
-}
-.toggle{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  margin:12px 0;
-}
-.toggle button{
-  padding:13px 5px;
-  border-radius:13px;
-  border:1px solid var(--line);
-  background:white;
-  font-weight:700;
-}
-.toggle button.active{
-  background:#111;
-  color:white;
-  border-color:#111;
-}
-.send{
-  width:100%;
-  border:0;
-  background:#25D366;
-  color:white;
-  font-weight:900;
-  padding:17px;
-  border-radius:16px;
-  margin-top:12px;
-  font-size:16px;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
 }
 
-/* BARRA INFERIOR */
+.field.full{
+ grid-column:1/-1;
+}
+
+label{
+ display:block;
+ font-size:11px;
+ font-weight:800;
+ margin-bottom:5px;
+}
+
+input,textarea{
+ width:100%;
+ border:1px solid #d9d1c8;
+ background:#fff;
+ border-radius:12px;
+ padding:13px;
+ font-size:16px;
+ outline:none;
+}
+
+textarea{
+ min-height:75px;
+ resize:vertical;
+}
+
+/* BARRA */
+
 .bottom{
-  position:fixed;
-  left:0;
-  right:0;
-  bottom:0;
-  background:rgba(255,250,242,.96);
-  backdrop-filter:blur(15px);
-  border-top:1px solid var(--line);
-  padding:12px 18px calc(12px + env(safe-area-inset-bottom));
-  z-index:20;
-  display:flex;
-  align-items:center;
-  gap:15px;
+ position:fixed;
+ left:0;
+ right:0;
+ bottom:0;
+ z-index:50;
+ background:rgba(251,248,242,.96);
+ backdrop-filter:blur(15px);
+ border-top:1px solid var(--line);
+ padding:10px 15px calc(10px + env(safe-area-inset-bottom));
 }
-.totalbox{min-width:85px}
-.totalbox small{
-  display:block;
-  color:#777;
-  letter-spacing:1px;
+
+.bottomInner{
+ max-width:1050px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:220px 1fr;
+ gap:15px;
+ align-items:center;
 }
-.totalbox strong{font-size:24px}
-.view{
-  flex:1;
-  border:0;
-  background:#111;
-  color:white;
-  padding:16px;
-  border-radius:18px;
-  font-weight:900;
-  font-size:16px;
+
+.price small{
+ display:block;
+ color:#555;
 }
-.empty{
-  text-align:center;
-  color:#888;
-  padding:25px 5px;
+
+.price strong{
+ font-size:34px;
 }
-.back{
-  border:0;
-  background:none;
-  padding:0;
-  font-weight:800;
-  margin-bottom:10px;
+
+.whatsapp{
+ border:0;
+ border-radius:14px;
+ background:#20ad4d;
+ color:white;
+ padding:16px;
+ font-weight:900;
+ font-size:18px;
 }
-.note{
+
+.footer{
+ text-align:center;
+ color:#888;
+ font-size:11px;
+ padding:25px;
+}
+
+/* CELULAR */
+
+@media(max-width:700px){
+
+ .page{
+  padding:8px 11px 110px;
+ }
+
+ .logo{
+  width:80px;
+  height:80px;
+ }
+
+ .logo strong{font-size:18px}
+ .logo small{font-size:4px}
+
+ .nav{display:none}
+
+ .hero{
+  grid-template-columns:1fr;
+  gap:12px;
+ }
+
+ .heroText{
+  padding:10px 4px 0;
+ }
+
+ .arma{
   font-size:12px;
-  color:#777;
-  text-align:center;
-  margin-top:15px;
+  letter-spacing:5px;
+ }
+
+ .hero h1{
+  font-size:43px;
+ }
+
+ .heroSubtitle{
+  font-size:16px;
+  letter-spacing:3px;
+ }
+
+ .benefits{
+  gap:10px;
+  justify-content:flex-start;
+ }
+
+ .productScene{
+  height:310px;
+ }
+
+ .bigCup{
+  width:155px;
+  height:245px;
+  left:10%;
+ }
+
+ .toppingCup{
+  width:95px;
+  height:140px;
+  right:17%;
+ }
+
+ .honey{
+  width:55px;
+  height:85px;
+  right:2%;
+ }
+
+ .sceneNote{display:none}
+
+ .step{
+  padding:14px;
+  border-radius:18px;
+ }
+
+ .stepHeader{
+  display:block;
+ }
+
+ .stepTitle{
+  margin-bottom:5px;
+ }
+
+ .number{
+  width:36px;
+  height:36px;
+  font-size:16px;
+ }
+
+ .step h2{
+  font-size:20px;
+ }
+
+ .help{
+  margin-left:49px;
+ }
+
+ .five,
+ .four,
+ .two{
+  grid-template-columns:repeat(2,1fr);
+ }
+
+ .photo{
+  height:92px;
+ }
+
+ .double{
+  grid-template-columns:1fr;
+ }
+
+ .form{
+  grid-template-columns:1fr;
+ }
+
+ .field.full{
+  grid-column:auto;
+ }
+
+ .bottomInner{
+  grid-template-columns:95px 1fr;
+  gap:8px;
+ }
+
+ .price small{
+  font-size:10px;
+ }
+
+ .price strong{
+  font-size:27px;
+ }
+
+ .whatsapp{
+  font-size:14px;
+  padding:15px 9px;
+ }
 }
-@media(min-width:600px){
-  .options{grid-template-columns:repeat(3,1fr)}
-  h1{font-size:62px}
-}
+
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">
-    <strong>DELEITE</strong>
-    <span>RICO, FRESCO Y SALUDABLE</span>
+<div class="page">
+
+<header class="header">
+
+ <div class="logo">
+  <strong>DELEITE</strong>
+  <small>RICO, FRESCO Y SALUDABLE</small>
+ </div>
+
+ <div class="nav">
+  <span>INICIO</span>
+  <span>NUESTROS PRODUCTOS</span>
+  <span>SOBRE NOSOTROS</span>
+ </div>
+
+ <div class="right">
+  <div class="carticon">
+   🛒
+   <span class="cartcount" id="cartCount">0</span>
   </div>
+  <span>☰</span>
+ </div>
+
 </header>
 
-<section class="hero" id="builderTop">
-  <div class="kicker">ARMÁ EL TUYO</div>
-  <h1>Tu vaso.<br>Tu momento.</h1>
-  <div class="sub">Elegí lo que te gusta y nosotros lo preparamos fresco para vos.</div>
+<section class="hero">
 
-  <div class="badges">
-    <div class="badge">🥣 500 ml</div>
-    <div class="badge">💵 $6.000</div>
-    <div class="badge">🛵 Delivery sin costo</div>
+ <div class="heroText">
+
+  <div class="arma">ARMÁ EL TUYO</div>
+
+  <h1>TU VASO,<br>TUS REGLAS.</h1>
+
+  <div class="heroSubtitle">
+   YOGUR GRIEGO &<br>
+   PUDÍN DE CHÍA
   </div>
 
-  <div class="visual">
-    <div class="cup">
-      <div class="cuplogo">
-        DELEITE
-        <small>RICO, FRESCO Y SALUDABLE</small>
-      </div>
-    </div>
-    <div class="topcup"></div>
-    <div class="honey"></div>
+  <div class="benefits">
+
+   <div class="benefit">
+    <div class="bicon">🌿</div>
+    INGREDIENTES<br>NATURALES
+   </div>
+
+   <div class="benefit">
+    <div class="bicon">💪</div>
+    ALTO EN<br>PROTEÍNAS
+   </div>
+
+   <div class="benefit">
+    <div class="bicon">♡</div>
+    RICO Y<br>SALUDABLE
+   </div>
+
   </div>
+
+ </div>
+
+ <div class="productScene">
+
+  <div class="sceneNote">500 ml · $6.000</div>
+
+  <div class="bigCup">
+
+   <div class="yogurtTop"></div>
+   <div class="fruitLayer"></div>
+   <div class="yogurtBottom"></div>
+
+   <div class="cupLogo">
+    <b>DELEITE</b>
+    <small>RICO, FRESCO Y SALUDABLE</small>
+   </div>
+
+  </div>
+
+  <div class="toppingCup"></div>
+  <div class="honey"></div>
+
+ </div>
+
 </section>
 
-<main class="builder" id="builder">
+<!-- 1 BASE -->
 
-  <section class="step">
-    <span class="stepnum">1</span><h2>Elegí tu base</h2>
-    <div class="hint">La protagonista de tu vaso.</div>
-    <div class="options" id="bases">
-      <button class="option" data-value="Yogur griego">
-        <span class="emoji">🥛</span>Yogur griego
-        <small>Cremoso y artesanal</small>
-      </button>
-      <button class="option" data-value="Pudín de chía">
-        <span class="emoji">🌱</span>Pudín de chía
-        <small>Suave y fresco</small>
-      </button>
-    </div>
-  </section>
+<section class="step">
 
-  <section class="step">
-    <span class="stepnum">2</span><h2>Elegí tus frutas</h2>
-    <div class="hint">Podés elegir una o combinar varias.</div>
-    <div class="options multi" id="fruits">
-      <button class="option" data-value="Frutilla"><span class="emoji">🍓</span>Frutilla</button>
-      <button class="option" data-value="Banana"><span class="emoji">🍌</span>Banana</button>
-      <button class="option" data-value="Kiwi"><span class="emoji">🥝</span>Kiwi</button>
-      <button class="option" data-value="Durazno"><span class="emoji">🍑</span>Durazno</button>
-      <button class="option" data-value="Arándanos"><span class="emoji">🫐</span>Arándanos</button>
-    </div>
-  </section>
+ <div class="stepHeader">
 
-  <section class="step">
-    <span class="stepnum">3</span><h2>Sumale toppings</h2>
-    <div class="hint">Elegí los que quieras. Los enviamos en un vasito aparte.</div>
-    <div class="options multi" id="toppings">
-      <button class="option" data-value="Granola"><span class="emoji">🥣</span>Granola</button>
-      <button class="option" data-value="Coco"><span class="emoji">🥥</span>Coco</button>
-      <button class="option" data-value="Chips de chocolate"><span class="emoji">🍫</span>Chips de chocolate</button>
-      <button class="option" data-value="Maní"><span class="emoji">🥜</span>Maní</button>
-    </div>
-    <div class="hint" style="margin-top:15px">🍯 La miel viene incluida y se entrega aparte.</div>
-  </section>
-
-  <section class="step">
-    <span class="stepnum">4</span><h2>Cantidad</h2>
-    <div class="hint">¿Cuántos vasos iguales querés?</div>
-    <div class="qty">
-      <strong>Vasos</strong>
-      <div class="qtycontrol">
-        <button onclick="changeQty(-1)">−</button>
-        <strong id="qty">1</strong>
-        <button onclick="changeQty(1)">+</button>
-      </div>
-    </div>
-  </section>
-
-  <div class="summary">
-    <h3>Tu DELEITE</h3>
-    <p id="sumBase">Base: todavía no elegiste</p>
-    <p id="sumFruit">Frutas: todavía no elegiste</p>
-    <p id="sumTop">Toppings: ninguno</p>
-    <p>🍯 Miel incluida aparte</p>
-    <p>🛵 Delivery sin costo</p>
-    <div class="price" id="productPrice">$6.000</div>
-    <button class="add" onclick="addToCart()">Agregar al pedido</button>
+  <div class="stepTitle">
+   <div class="number">1</div>
+   <h2>Elegí tu base</h2>
   </div>
 
-</main>
+  <div class="help">Seleccioná una opción.</div>
 
-<section class="cart" id="cart">
-  <button class="back" onclick="showBuilder()">← Seguir armando</button>
-  <h2>Tu pedido</h2>
-  <div id="cartItems"></div>
+ </div>
 
-  <div class="form">
-    <h3>¿Cómo te lo entregamos?</h3>
+ <div class="cards two" id="bases">
 
-    <div class="toggle">
-      <button id="deliveryBtn" class="active" onclick="setDelivery('Delivery')">🛵 Delivery</button>
-      <button id="pickupBtn" onclick="setDelivery('Retiro')">🏠 Retiro</button>
-    </div>
+  <button class="card selected" data-value="Yogur griego">
 
-    <input id="name" placeholder="Tu nombre">
-    <input id="phone" placeholder="Tu teléfono" inputmode="tel">
+   <span class="check">✓</span>
 
-    <div id="addressFields">
-      <input id="address" placeholder="Dirección">
-      <input id="reference" placeholder="Referencia / barrio (opcional)">
-    </div>
+   <div class="photo yogurtPhoto">🥣</div>
 
-    <h3 style="margin-top:20px">Forma de pago</h3>
-    <div class="toggle">
-      <button id="cashBtn" class="active" onclick="setPayment('Efectivo')">💵 Efectivo</button>
-      <button id="transferBtn" onclick="setPayment('Transferencia')">📲 Transferencia</button>
-    </div>
+   <div class="cardText">
+    <strong>Yogur griego</strong>
+    <small>Cremoso, colado y con un sabor suave.</small>
+   </div>
 
-    <textarea id="notes" placeholder="¿Querés aclararnos algo? (opcional)"></textarea>
+  </button>
 
-    <button class="send" onclick="sendWhatsApp()">Enviar pedido por WhatsApp</button>
-    <div class="note">Al tocar el botón se abrirá WhatsApp con tu pedido listo para enviar.</div>
-  </div>
+  <button class="card" data-value="Pudín de chía">
+
+   <span class="check">✓</span>
+
+   <div class="photo chiaPhoto">🌱</div>
+
+   <div class="cardText">
+    <strong>Pudín de chía</strong>
+    <small>Textura única, fresco y delicioso.</small>
+   </div>
+
+  </button>
+
+ </div>
+
 </section>
+
+<!-- 2 FRUTAS -->
+
+<section class="step">
+
+ <div class="stepHeader">
+
+  <div class="stepTitle">
+   <div class="number">2</div>
+   <h2>Elegí tus frutas</h2>
+  </div>
+
+  <div class="help">
+   Podés elegir una o varias. No cambia el precio.
+  </div>
+
+ </div>
+
+ <div class="cards five" id="fruits">
+
+  <button class="card" data-value="Arándano">
+   <span class="check">✓</span>
+   <div class="photo fruitPhoto">🫐</div>
+   <div class="cardText"><strong>Arándano</strong></div>
+  </button>
+
+  <button class="card" data-value="Frutilla">
+   <span class="check">✓</span>
+   <div class="photo fruitPhoto">🍓</div>
+   <div class="cardText"><strong>Frutilla</strong></div>
+  </button>
+
+  <button class="card" data-value="Durazno">
+   <span class="check">✓</span>
+   <div class="photo fruitPhoto">🍑</div>
+   <div class="cardText"><strong>Durazno</strong></div>
+  </button>
+
+  <button class="card" data-value="Banana">
+   <span class="check">✓</span>
+   <div class="photo fruitPhoto">🍌</div>
+   <div class="cardText"><strong>Banana</strong></div>
+  </button>
+
+  <button class="card" data-value="Kiwi">
+   <span class="check">✓</span>
+   <div class="photo fruitPhoto">🥝</div>
+   <div class="cardText"><strong>Kiwi</strong></div>
+  </button>
+
+ </div>
+
+</section>
+
+<!-- 3 TOPPINGS -->
+
+<section class="step">
+
+ <div class="stepHeader">
+
+  <div class="stepTitle">
+   <div class="number">3</div>
+   <h2>Elegí tus toppings</h2>
+  </div>
+
+  <div class="help">
+   Podés elegir uno o varios. No cambia el precio.
+  </div>
+
+ </div>
+
+ <div class="cards four" id="toppings">
+
+  <button class="card" data-value="Granola">
+   <span class="check">✓</span>
+   <div class="photo granolaPhoto"></div>
+   <div class="cardText"><strong>Granola</strong></div>
+  </button>
+
+  <button class="card" data-value="Cereales sin azúcar">
+   <span class="check">✓</span>
+   <div class="photo cerealPhoto"></div>
+   <div class="cardText"><strong>Cereales sin azúcar</strong></div>
+  </button>
+
+  <button class="card" data-value="Frutos secos">
+   <span class="check">✓</span>
+   <div class="photo nutsPhoto"></div>
+   <div class="cardText"><strong>Frutos secos</strong></div>
+  </button>
+
+  <button class="card" data-value="Avena">
+   <span class="check">✓</span>
+   <div class="photo oatsPhoto"></div>
+   <div class="cardText"><strong>Avena</strong></div>
+  </button>
+
+ </div>
+
+ <div class="help" style="margin:15px 0 0">
+  🍯 La miel viene incluida y se entrega aparte.
+ </div>
+
+</section>
+
+<!-- 4 CANTIDAD -->
+
+<section class="step">
+
+ <div class="quantity">
+
+  <div class="stepTitle">
+   <div class="number">4</div>
+
+   <div>
+    <h2>Cantidad de vasos</h2>
+    <div class="help" style="margin:3px 0 0">
+     Seleccioná cuántos vasos vas a querer.
+    </div>
+   </div>
+
+  </div>
+
+  <div class="qty">
+
+   <button id="minus">−</button>
+
+   <strong id="qty">1</strong>
+
+   <button id="plus">+</button>
+
+  </div>
+
+ </div>
+
+</section>
+
+<!-- 5 Y 6 -->
+
+<div class="double">
+
+<section class="step">
+
+ <div class="stepTitle">
+  <div class="number">5</div>
+  <h2>Forma de pago</h2>
+ </div>
+
+ <button class="choice selected payment"
+ data-value="Transferencia bancaria">
+
+  <span class="choiceIcon">🏦</span>
+
+  <span>
+   <strong>Transferencia bancaria</strong>
+   <small>Pago por transferencia.</small>
+  </span>
+
+  <span class="check">✓</span>
+
+ </button>
+
+ <button class="choice payment"
+ data-value="Efectivo">
+
+  <span class="choiceIcon">💵</span>
+
+  <span>
+   <strong>Efectivo</strong>
+   <small>En el momento.</small>
+  </span>
+
+  <span class="check">✓</span>
+
+ </button>
+
+</section>
+
+<section class="step">
+
+ <div class="stepTitle">
+  <div class="number">6</div>
+  <h2>Entrega</h2>
+ </div>
+
+ <button class="choice selected delivery"
+ data-value="Lo vengo a buscar">
+
+  <span class="choiceIcon">🏪</span>
+
+  <span>
+   <strong>Lo vengo a buscar</strong>
+   <small>Sin costo adicional.</small>
+  </span>
+
+  <span class="check">✓</span>
+
+ </button>
+
+ <button class="choice delivery"
+ data-value="Delivery sin costo">
+
+  <span class="choiceIcon">🛵</span>
+
+  <span>
+   <strong>Delivery sin costo</strong>
+   <small>Coordinamos la entrega.</small>
+  </span>
+
+  <span class="check">✓</span>
+
+ </button>
+
+</section>
+
+</div>
+
+<!-- CARRITO -->
+
+<section class="step" id="order">
+
+ <div class="stepHeader">
+
+  <div class="stepTitle">
+   <div class="number">7</div>
+   <h2>Tu pedido</h2>
+  </div>
+
+  <div class="help">
+   Podés agregar distintas combinaciones.
+  </div>
+
+ </div>
+
+ <button class="add" id="add">
+  Agregar esta combinación al pedido
+ </button>
+
+ <div id="cart">
+  <div class="cartEmpty">
+   Todavía no agregaste ningún vaso.
+  </div>
+ </div>
+
+</section>
+
+<!-- DATOS -->
+
+<section class="step">
+
+ <div class="stepTitle" style="margin-bottom:15px">
+  <div class="number">8</div>
+  <h2>Datos para finalizar</h2>
+ </div>
+
+ <div class="form">
+
+  <div class="field">
+   <label>Nombre *</label>
+   <input id="name" placeholder="Tu nombre">
+  </div>
+
+  <div class="field">
+   <label>Teléfono *</label>
+   <input id="phone" inputmode="tel" placeholder="Tu teléfono">
+  </div>
+
+  <div class="field full" id="addressField" style="display:none">
+   <label>Dirección *</label>
+   <input id="address" placeholder="Calle, número y barrio">
+  </div>
+
+  <div class="field full">
+   <label>Observaciones</label>
+   <textarea id="notes" placeholder="Opcional"></textarea>
+  </div>
+
+ </div>
+
+</section>
+
+<div class="footer">
+ DELEITE · 500 ml · $6.000 por vaso · Delivery sin costo
+</div>
+
+</div>
+
+<!-- BARRA INFERIOR -->
 
 <div class="bottom">
-  <div class="totalbox">
-    <small>TOTAL</small>
-    <strong id="total">$0</strong>
+
+ <div class="bottomInner">
+
+  <div class="price">
+   <small>Precio final</small>
+   <strong id="total">$0</strong>
   </div>
-  <button class="view" onclick="showCart()">Ver pedido · <span id="count">0</span></button>
+
+  <button class="whatsapp" id="send">
+   🟢 Realizar pedido por WhatsApp →
+  </button>
+
+ </div>
+
 </div>
 
 <script>
+
 const PRICE=6000;
+
+/* Número de WhatsApp de DELEITE */
+const WHATSAPP="5492615691126";
+
+let base="Yogur griego";
+let fruits=[];
+let toppings=[];
 let qty=1;
+let payment="Transferencia bancaria";
+let delivery="Lo vengo a buscar";
 let cart=[];
-let delivery="Delivery";
-let payment="Efectivo";
 
-function money(n){
-  return "$"+n.toLocaleString("es-AR");
+function money(value){
+ return "$"+value.toLocaleString("es-AR");
 }
 
-function selectedValues(id){
-  return [...document.querySelectorAll("#"+id+" .selected")]
-    .map(x=>x.dataset.value);
-}
+/* BASE */
 
-document.querySelectorAll("#bases .option").forEach(btn=>{
-  btn.onclick=()=>{
-    document.querySelectorAll("#bases .option").forEach(x=>x.classList.remove("selected"));
-    btn.classList.add("selected");
-    updateSummary();
-  };
+document.querySelectorAll("#bases .card").forEach(button=>{
+
+ button.onclick=()=>{
+
+  document.querySelectorAll("#bases .card")
+  .forEach(x=>x.classList.remove("selected"));
+
+  button.classList.add("selected");
+
+  base=button.dataset.value;
+
+ };
+
 });
 
-document.querySelectorAll(".multi .option").forEach(btn=>{
-  btn.onclick=()=>{
-    btn.classList.toggle("selected");
-    updateSummary();
-  };
+/* FRUTAS */
+
+document.querySelectorAll("#fruits .card").forEach(button=>{
+
+ button.onclick=()=>{
+
+  button.classList.toggle("selected");
+
+  fruits=[
+   ...document.querySelectorAll("#fruits .selected")
+  ].map(x=>x.dataset.value);
+
+ };
+
 });
 
-function changeQty(n){
-  qty=Math.max(1,qty+n);
-  document.getElementById("qty").textContent=qty;
-  updateSummary();
-}
+/* TOPPINGS */
 
-function updateSummary(){
-  const base=selectedValues("bases")[0];
-  const fruits=selectedValues("fruits");
-  const tops=selectedValues("toppings");
+document.querySelectorAll("#toppings .card").forEach(button=>{
 
-  document.getElementById("sumBase").textContent=
-    "Base: "+(base||"todavía no elegiste");
+ button.onclick=()=>{
 
-  document.getElementById("sumFruit").textContent=
-    "Frutas: "+(fruits.length?fruits.join(", "):"todavía no elegiste");
+  button.classList.toggle("selected");
 
-  document.getElementById("sumTop").textContent=
-    "Toppings: "+(tops.length?tops.join(", "):"ninguno");
+  toppings=[
+   ...document.querySelectorAll("#toppings .selected")
+  ].map(x=>x.dataset.value);
 
-  document.getElementById("productPrice").textContent=
-    money(PRICE*qty);
-}
+ };
 
-function addToCart(){
-  const base=selectedValues("bases")[0];
-  const fruits=selectedValues("fruits");
-  const toppings=selectedValues("toppings");
+});
 
-  if(!base){
-    alert("Primero elegí Yogur griego o Pudín de chía.");
-    document.getElementById("bases").scrollIntoView({behavior:"smooth"});
-    return;
-  }
+/* CANTIDAD */
 
-  if(!fruits.length){
-    alert("Elegí al menos una fruta.");
-    document.getElementById("fruits").scrollIntoView({behavior:"smooth"});
-    return;
-  }
+document.getElementById("minus").onclick=()=>{
 
-  cart.push({
-    base,
-    fruits:[...fruits],
-    toppings:[...toppings],
-    qty
-  });
+ qty=Math.max(1,qty-1);
 
-  renderCart();
-  resetBuilder();
-  showCart();
-}
+ document.getElementById("qty").textContent=qty;
 
-function resetBuilder(){
-  document.querySelectorAll(".option.selected").forEach(x=>x.classList.remove("selected"));
-  qty=1;
-  document.getElementById("qty").textContent=1;
-  updateSummary();
-}
+};
+
+document.getElementById("plus").onclick=()=>{
+
+ qty=Math.min(20,qty+1);
+
+ document.getElementById("qty").textContent=qty;
+
+};
+
+/* PAGO */
+
+document.querySelectorAll(".payment").forEach(button=>{
+
+ button.onclick=()=>{
+
+  document.querySelectorAll(".payment")
+  .forEach(x=>x.classList.remove("selected"));
+
+  button.classList.add("selected");
+
+  payment=button.dataset.value;
+
+ };
+
+});
+
+/* ENTREGA */
+
+document.querySelectorAll(".delivery").forEach(button=>{
+
+ button.onclick=()=>{
+
+  document.querySelectorAll(".delivery")
+  .forEach(x=>x.classList.remove("selected"));
+
+  button.classList.add("selected");
+
+  delivery=button.dataset.value;
+
+  document.getElementById("addressField").style.display=
+  delivery==="Delivery sin costo" ? "block" : "none";
+
+ };
+
+});
+
+/* AGREGAR AL CARRITO */
+
+document.getElementById("add").onclick=()=>{
+
+ if(fruits.length===0){
+
+  alert("Elegí al menos una fruta.");
+
+  document.getElementById("fruits")
+  .scrollIntoView({behavior:"smooth"});
+
+  return;
+
+ }
+
+ cart.push({
+
+  base:base,
+
+  fruits:[...fruits],
+
+  toppings:[...toppings],
+
+  qty:qty
+
+ });
+
+ renderCart();
+
+ document.getElementById("order")
+ .scrollIntoView({behavior:"smooth"});
+
+};
+
+/* MOSTRAR CARRITO */
 
 function renderCart(){
-  const box=document.getElementById("cartItems");
 
-  if(!cart.length){
-    box.innerHTML='<div class="empty">Todavía no agregaste ningún vaso.</div>';
-  }else{
-    box.innerHTML=cart.map((item,i)=>`
-      <div class="cartitem">
-        <strong>${item.qty} × ${item.base}</strong>
-        <p>
-          Frutas: ${item.fruits.join(", ")}<br>
-          Toppings: ${item.toppings.length?item.toppings.join(", "):"Sin toppings"}<br>
-          Miel: incluida aparte<br>
-          Subtotal: ${money(item.qty*PRICE)}
-        </p>
-        <button class="remove" onclick="removeItem(${i})">Eliminar</button>
-      </div>
-    `).join("");
-  }
+ const container=document.getElementById("cart");
 
-  const count=cart.reduce((a,x)=>a+x.qty,0);
-  const total=count*PRICE;
+ if(cart.length===0){
 
-  document.getElementById("count").textContent=count;
-  document.getElementById("total").textContent=money(total);
+  container.innerHTML=
+  '<div class="cartEmpty">Todavía no agregaste ningún vaso.</div>';
+
+ }else{
+
+  container.innerHTML=cart.map((item,index)=>`
+
+   <div class="cartItem">
+
+    <strong>
+     Vaso ${index+1} · ${item.base} × ${item.qty}
+    </strong>
+
+    <p>
+     Frutas: ${item.fruits.join(", ")}<br>
+     Toppings:
+     ${item.toppings.length
+      ? item.toppings.join(", ")
+      : "Sin toppings"}<br>
+     Miel incluida aparte<br>
+     Subtotal: ${money(item.qty*PRICE)}
+    </p>
+
+    <button class="remove"
+    onclick="removeItem(${index})">
+     Eliminar
+    </button>
+
+   </div>
+
+  `).join("");
+
+ }
+
+ const count=cart.reduce(
+  (sum,item)=>sum+item.qty,0
+ );
+
+ const total=cart.reduce(
+  (sum,item)=>sum+(item.qty*PRICE),0
+ );
+
+ document.getElementById("cartCount")
+ .textContent=count;
+
+ document.getElementById("total")
+ .textContent=money(total);
+
 }
 
-function removeItem(i){
-  cart.splice(i,1);
-  renderCart();
+/* ELIMINAR */
+
+function removeItem(index){
+
+ cart.splice(index,1);
+
+ renderCart();
+
 }
 
-function showCart(){
-  document.getElementById("builder").style.display="none";
-  document.querySelector(".hero").style.display="none";
-  document.querySelector("header").style.display="none";
-  document.getElementById("cart").classList.add("show");
-  window.scrollTo({top:0,behavior:"smooth"});
-}
+/* WHATSAPP */
 
-function showBuilder(){
-  document.getElementById("builder").style.display="block";
-  document.querySelector(".hero").style.display="block";
-  document.querySelector("header").style.display="block";
-  document.getElementById("cart").classList.remove("show");
-  window.scrollTo({top:0,behavior:"smooth"});
-}
+document.getElementById("send").onclick=()=>{
 
-function setDelivery(type){
-  delivery=type;
+ if(cart.length===0){
 
-  document.getElementById("deliveryBtn").classList.toggle("active",type==="Delivery");
-  document.getElementById("pickupBtn").classList.toggle("active",type==="Retiro");
+  alert("Primero agregá al menos un vaso al pedido.");
 
-  document.getElementById("addressFields").style.display=
-    type==="Delivery"?"block":"none";
-}
+  return;
 
-function setPayment(type){
-  payment=type;
+ }
 
-  document.getElementById("cashBtn").classList.toggle("active",type==="Efectivo");
-  document.getElementById("transferBtn").classList.toggle("active",type==="Transferencia");
-}
+ const name=
+ document.getElementById("name").value.trim();
 
-function sendWhatsApp(){
-  if(!cart.length){
-    alert("Primero agregá al menos un vaso al pedido.");
-    return;
-  }
+ const phone=
+ document.getElementById("phone").value.trim();
 
-  const name=document.getElementById("name").value.trim();
-  const phone=document.getElementById("phone").value.trim();
-  const address=document.getElementById("address").value.trim();
-  const reference=document.getElementById("reference").value.trim();
-  const notes=document.getElementById("notes").value.trim();
+ const address=
+ document.getElementById("address").value.trim();
 
-  if(!name){
-    alert("Escribí tu nombre.");
-    return;
-  }
+ const notes=
+ document.getElementById("notes").value.trim();
 
-  if(delivery==="Delivery" && !address){
-    alert("Escribí la dirección para el delivery.");
-    return;
-  }
+ if(!name){
 
-  let text="🥣 *NUEVO PEDIDO - DELEITE*%0A%0A";
-  text+="👤 *Cliente:* "+encodeURIComponent(name)+"%0A";
+  alert("Ingresá tu nombre.");
 
-  if(phone){
-    text+="📱 *Teléfono:* "+encodeURIComponent(phone)+"%0A";
-  }
+  return;
 
-  text+="%0A";
+ }
 
-  cart.forEach((item,i)=>{
-    text+="*Vaso "+(i+1)+"*%0A";
-    text+="• Cantidad: "+item.qty+"%0A";
-    text+="• Base: "+encodeURIComponent(item.base)+"%0A";
-    text+="• Frutas: "+encodeURIComponent(item.fruits.join(", "))+"%0A";
-    text+="• Toppings: "+encodeURIComponent(item.toppings.length?item.toppings.join(", "):"Sin toppings")+"%0A";
-    text+="• Miel: incluida aparte%0A";
-    text+="• Subtotal: "+encodeURIComponent(money(item.qty*PRICE))+"%0A%0A";
-  });
+ if(!phone){
 
-  text+="🚚 *Entrega:* "+delivery+"%0A";
+  alert("Ingresá tu teléfono.");
 
-  if(delivery==="Delivery"){
-    text+="📍 *Dirección:* "+encodeURIComponent(address)+"%0A";
-    if(reference){
-      text+="🏘️ *Referencia:* "+encodeURIComponent(reference)+"%0A";
-    }
-  }
+  return;
 
-  text+="💳 *Pago:* "+payment+"%0A";
+ }
 
-  if(notes){
-    text+="📝 *Aclaración:* "+encodeURIComponent(notes)+"%0A";
-  }
+ if(
+  delivery==="Delivery sin costo"
+  &&
+  !address
+ ){
 
-  const total=cart.reduce((a,x)=>a+(x.qty*PRICE),0);
-  text+="%0A💰 *TOTAL: "+encodeURIComponent(money(total))+"*";
-  text+="%0A🛵 Delivery sin costo";
+  alert("Ingresá la dirección.");
 
-  /* IMPORTANTE:
-     Si alguna vez cambia el número de WhatsApp,
-     se cambia solamente el número de abajo.
-  */
-  const whatsapp="5492615691126";
+  return;
 
-  window.open("https://wa.me/"+whatsapp+"?text="+text,"_blank");
-}
+ }
 
-updateSummary();
+ let message=
+ "🥣 *NUEVO PEDIDO - DELEITE*\n\n";
+
+ cart.forEach((item,index)=>{
+
+  message+=
+  `*Vaso ${index+1}*\n`;
+
+  message+=
+  `Base: ${item.base}\n`;
+
+  message+=
+  `Frutas: ${item.fruits.join(", ")}\n`;
+
+  message+=
+  `Toppings: ${
+   item.toppings.length
+   ? item.toppings.join(", ")
+   : "Sin toppings"
+  }\n`;
+
+  message+=
+  `Miel: incluida aparte\n`;
+
+  message+=
+  `Cantidad: ${item.qty}\n`;
+
+  message+=
+  `Subtotal: ${money(item.qty*PRICE)}\n\n`;
+
+ });
+
+ message+=
+ `Forma de pago: ${payment}\n`;
+
+ message+=
+ `Entrega: ${delivery}\n`;
+
+ if(delivery==="Delivery sin costo"){
+
+  message+=
+  `Dirección: ${address}\n`;
+
+ }
+
+ message+=
+ `Nombre: ${name}\n`;
+
+ message+=
+ `Teléfono: ${phone}\n`;
+
+ if(notes){
+
+  message+=
+  `Observaciones: ${notes}\n`;
+
+ }
+
+ const total=cart.reduce(
+  (sum,item)=>sum+(item.qty*PRICE),0
+ );
+
+ message+=
+ `\n*TOTAL: ${money(total)}*`;
+
+ const url=
+ "https://wa.me/"
+ +WHATSAPP
+ +"?text="
+ +encodeURIComponent(message);
+
+ window.open(url,"_blank");
+
+};
+
 renderCart();
+
 </script>
 
 </body>
