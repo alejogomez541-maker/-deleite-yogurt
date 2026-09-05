@@ -3,313 +3,693 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DELEITE</title>
+<meta name="theme-color" content="#ffffff">
+<title>DELEITE | Yogurt Griego & Pudín de Chía</title>
 
 <style>
+:root{
+  --black:#111111;
+  --gray:#6d6d6d;
+  --light:#f7f6f2;
+  --line:#dfdfdf;
+  --white:#ffffff;
+  --green:#20a957;
+}
+
 *{
   box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   background:#fff;
-  color:#111;
+  color:var(--black);
+}
+
+button,
+input,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
 }
 
 .app{
+  width:100%;
   max-width:760px;
   margin:auto;
-  padding:20px 16px 120px;
+  padding:20px 16px 130px;
 }
 
-.logo{ 
-  margin:0 auto;
-text-align:center;
-  width:120px;
-  height:120px;
+/* =========================
+   LOGO
+========================= */
+
+.brand-logo{
+  width:128px;
+  height:128px;
   border:2px solid #111;
   border-radius:50%;
+  margin:0 auto 25px;
   display:flex;
+  flex-direction:column;
   align-items:center;
   justify-content:center;
-  flex-direction:column;
-}
-
-.logo strong{
-  font-size:22px;
-white-space:nowrap;
-line-height:1;
-}
-
-.logo span{
-  white-space:nowrap;
   text-align:center;
-  margin-top:6px;
-  letter-spacing:0px;
-  font-size:5px;
-  font-weight:bold;
 }
-  
 
+.brand-logo strong{
+  font-size:24px;
+  line-height:1;
+  white-space:nowrap;
 }
+
+.brand-logo span{
+  margin-top:7px;
+  font-size:5px;
+  font-weight:700;
+  white-space:nowrap;
+  letter-spacing:0;
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-  margin-top:25px;
+  margin-bottom:24px;
 }
 
-.hero small{
-  letter-spacing:5px;
+.hero-kicker{
+  font-size:16px;
+  letter-spacing:6px;
+  margin-bottom:16px;
 }
 
 .hero h1{
-  font-size:44px;
-  line-height:.95;
-  margin:12px 0;
+  font-size:48px;
+  line-height:.96;
+  margin:0 0 18px;
+  letter-spacing:-2px;
 }
 
-.hero p{
-  color:#666;
+.hero-sub{
+  color:var(--gray);
+  font-size:18px;
+  margin:0;
 }
 
-.preview{
+/* =========================
+   VISTA DEL PRODUCTO
+========================= */
+
+.product-stage{
+  background:var(--light);
+  border-radius:28px;
+  padding:20px 14px 16px;
   display:grid;
-  grid-template-columns:1.3fr .7fr .42fr;
-  gap:10px;
+  grid-template-columns:1.35fr .72fr .42fr;
+  gap:12px;
   align-items:end;
-  background:#f7f7f5;
-  padding:15px;
-  border-radius:22px;
-  margin:22px 0;
+  margin-bottom:30px;
 }
 
-.bigCup{
-  height:280px;
-  border:3px solid #aaa;
-  border-radius:12px 12px 28px 28px;
+.product-col{
+  text-align:center;
+  min-width:0;
+}
+
+/* Vaso grande */
+
+.big-cup{
+  height:310px;
   position:relative;
+  border:3px solid #aaa;
+  border-top:4px solid #999;
+  border-radius:16px 16px 34px 34px;
   overflow:hidden;
-  background:rgba(255,255,255,.4);
+  background:rgba(255,255,255,.65);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.4);
 }
 
-.layer{
+.cup-layer{
   position:absolute;
+  left:0;
   width:100%;
-  transition:.4s ease;
+  transition:
+    height .45s ease,
+    background .45s ease,
+    opacity .3s ease;
 }
 
-.baseBottom{
+.base-bottom{
   bottom:0;
   height:35%;
-  background:#f1eadc;
+  background:#f3ecdf;
 }
 
-.fruitLayer{
+.fruit-layer{
   bottom:35%;
   height:30%;
-  background:white;
+  background:#fff;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
+  align-content:center;
   flex-wrap:wrap;
-  gap:4px;
-  font-size:27px;
+  gap:5px;
+  padding:6px;
+  overflow:hidden;
 }
 
-.baseTop{
+.base-top{
   bottom:65%;
   height:35%;
-  background:#f1eadc;
+  background:#f3ecdf;
 }
 
-.cupLogo{
+.fruit-piece{
+  font-size:30px;
+  line-height:1;
+  animation:fruitPop .28s ease;
+}
+
+@keyframes fruitPop{
+  from{
+    transform:scale(.25) translateY(-10px);
+    opacity:0;
+  }
+  to{
+    transform:scale(1) translateY(0);
+    opacity:1;
+  }
+}
+
+/* Logo transparente sobre vaso */
+
+.cup-logo{
   position:absolute;
-  z-index:5;
-  top:48%;
+  z-index:10;
   left:50%;
+  top:48%;
   transform:translate(-50%,-50%);
-  width:95px;
-  height:95px;
+  width:104px;
+  height:104px;
   border:2px solid #111;
   border-radius:50%;
   display:flex;
+  flex-direction:column;
   align-items:center;
   justify-content:center;
-  font-weight:bold;
-  background:rgba(255,255,255,.12);
+  background:rgba(255,255,255,.10);
+  backdrop-filter:blur(1px);
+  pointer-events:none;
 }
 
-.middleCup{
-  height:150px;
+.cup-logo strong{
+  font-size:17px;
+  line-height:1;
+}
+
+.cup-logo span{
+  font-size:4px;
+  margin-top:5px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+/* Vaso toppings */
+
+.topping-cup{
+  height:175px;
   border:3px solid #aaa;
-  border-radius:10px 10px 22px 22px;
+  border-radius:14px 14px 28px 28px;
+  background:rgba(255,255,255,.8);
   display:flex;
   flex-wrap:wrap;
-  justify-content:center;
   align-content:flex-end;
+  justify-content:center;
+  gap:4px;
   padding:10px;
-  font-size:24px;
+  overflow:hidden;
 }
 
-.honeyCup{
-  height:75px;
+.topping-piece{
+  font-size:25px;
+  animation:toppingPop .25s ease;
+}
+
+@keyframes toppingPop{
+  from{
+    transform:translateY(-20px) scale(.5);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0) scale(1);
+    opacity:1;
+  }
+}
+
+/* Miel */
+
+.honey-cup{
+  height:82px;
   border:3px solid #aaa;
-  border-radius:8px 8px 16px 16px;
-  background:linear-gradient(
-    to top,
-    #d8931b 65%,
-    transparent 65%
-  );
-  text-align:center;
-  padding-top:5px;
+  border-radius:11px 11px 20px 20px;
+  position:relative;
+  overflow:hidden;
+  background:#fff;
+}
+
+.honey-fill{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:64%;
+  background:linear-gradient(#e8a63b,#d88b16);
+}
+
+.honey-label{
+  position:absolute;
+  top:7px;
+  left:0;
+  right:0;
+  font-size:11px;
+}
+
+.stage-caption{
+  margin-top:8px;
   font-size:10px;
+  line-height:1.25;
+  font-weight:700;
 }
 
-.caption{
-  text-align:center;
-  font-size:10px;
-  margin-top:5px;
+/* =========================
+   SECCIONES
+========================= */
+
+.section{
+  border-top:1px solid var(--line);
+  padding:24px 0;
 }
 
-section{
-  padding:20px 0;
-  border-top:1px solid #ddd;
+.section-title{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:6px;
 }
 
-h2{
-  margin:0 0 7px;
+.step{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#111;
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-size:18px;
+  font-weight:800;
+  flex:none;
 }
 
-.description{
-  color:#666;
+.section h2{
+  margin:0;
+  font-size:25px;
+}
+
+.help{
+  margin:0 0 14px 52px;
+  color:var(--gray);
   font-size:14px;
 }
 
-.grid{
+/* =========================
+   OPCIONES
+========================= */
+
+.option-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:9px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
 }
 
 .option{
+  position:relative;
+  border:1px solid #d1d1d1;
   background:#fff;
-  border:1px solid #ccc;
-  border-radius:14px;
-  padding:14px;
-  font-size:16px;
+  border-radius:17px;
+  padding:15px 13px;
+  min-height:68px;
   text-align:left;
+  transition:.15s ease;
+  color:#111;
 }
 
 .option.active{
   border:2px solid #111;
-  font-weight:bold;
+  background:#fafafa;
+  font-weight:700;
 }
 
-.quantity{
+.option-icon{
+  font-size:25px;
+  margin-bottom:6px;
+  display:block;
+}
+
+.option-check{
+  position:absolute;
+  right:9px;
+  top:9px;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  border:1px solid #bbb;
+  display:grid;
+  place-items:center;
+  font-size:13px;
+}
+
+.option.active .option-check{
+  background:#111;
+  border-color:#111;
+  color:#fff;
+}
+
+.option-description{
+  display:block;
+  color:#777;
+  font-size:12px;
+  margin-top:4px;
+  font-weight:400;
+}
+
+/* =========================
+   CANTIDAD
+========================= */
+
+.quantity-box{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:var(--light);
+  border-radius:18px;
+  padding:14px;
+}
+
+.quantity-controls{
   display:flex;
   align-items:center;
   gap:15px;
 }
 
-.quantity button{
-  width:45px;
-  height:45px;
+.qty-button{
+  width:46px;
+  height:46px;
   border-radius:50%;
-  background:white;
   border:1px solid #bbb;
-  font-size:22px;
+  background:#fff;
+  font-size:26px;
 }
 
-.quantity strong{
-  font-size:22px;
+.qty-value{
+  font-size:24px;
+  min-width:30px;
+  text-align:center;
+  font-weight:800;
 }
+
+.qty-price{
+  font-size:20px;
+  font-weight:800;
+}
+
+/* =========================
+   BOTONES
+========================= */
 
 .primary{
-  background:#111;
-  color:white;
+  width:100%;
   border:none;
-  border-radius:13px;
-  padding:15px 18px;
+  background:#111;
+  color:#fff;
+  padding:16px 18px;
+  border-radius:15px;
+  font-weight:800;
   font-size:16px;
-  font-weight:bold;
 }
 
-.cartItem{
+.secondary{
+  border:1px solid #ccc;
+  background:#fff;
+  color:#111;
+  padding:10px 13px;
+  border-radius:12px;
+  font-weight:700;
+}
+
+.whatsapp{
+  width:100%;
+  border:none;
+  background:var(--green);
+  color:#fff;
+  padding:17px 18px;
+  border-radius:16px;
+  font-weight:800;
+  font-size:18px;
+  margin-top:14px;
+}
+
+/* =========================
+   CARRITO
+========================= */
+
+.cart-empty{
+  color:#777;
+  text-align:center;
+  padding:22px 10px;
+}
+
+.cart-item{
   border:1px solid #ddd;
-  border-radius:14px;
-  padding:13px;
+  border-radius:16px;
+  padding:14px;
   margin-top:10px;
 }
 
-.cartItem p{
-  color:#555;
-  margin:5px 0;
-  font-size:14px;
+.cart-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
 }
 
-.cartItem button{
+.cart-item h3{
+  margin:0 0 8px;
+  font-size:17px;
+}
+
+.cart-item p{
+  margin:4px 0;
+  color:#666;
+  font-size:13px;
+  line-height:1.35;
+}
+
+.remove-btn{
   border:none;
-  background:none;
-  color:#a00;
+  background:transparent;
+  color:#a00000;
+  font-weight:700;
+  padding:4px;
 }
 
-.total{
-  font-size:28px;
-  font-weight:bold;
-  margin-top:15px;
+.cart-price{
+  margin-top:10px;
+  font-weight:800;
+}
+
+.cart-total{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:18px;
+  font-size:22px;
+  font-weight:900;
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+
+.field{
+  margin-top:10px;
+}
+
+.field label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:6px;
 }
 
 input,
 textarea{
   width:100%;
-  font-size:16px;
-  padding:13px;
   border:1px solid #ccc;
-  border-radius:12px;
-  margin-top:8px;
+  border-radius:13px;
+  padding:14px;
+  background:#fff;
+  font-size:16px;
+  color:#111;
 }
 
 textarea{
-  min-height:80px;
+  min-height:90px;
+  resize:vertical;
 }
 
 .hidden{
   display:none;
 }
 
-.whatsapp{
-  width:100%;
-  background:#20a957;
-  color:white;
-  border:none;
-  padding:17px;
-  border-radius:14px;
-  font-size:18px;
-  font-weight:bold;
+/* =========================
+   RESUMEN
+========================= */
+
+.summary-box{
+  background:var(--light);
+  border-radius:18px;
+  padding:16px;
+  white-space:pre-line;
+  color:#444;
+  line-height:1.5;
+  font-size:14px;
 }
+
+.summary-total{
+  font-size:28px;
+  color:#111;
+  font-weight:900;
+  margin-top:15px;
+}
+
+/* =========================
+   BARRA INFERIOR
+========================= */
+
+.bottom-bar{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:50;
+  background:rgba(255,255,255,.96);
+  border-top:1px solid #ddd;
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  backdrop-filter:blur(12px);
+}
+
+.bottom-inner{
+  max-width:760px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.bottom-price small{
+  display:block;
+  color:#777;
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+.bottom-price strong{
+  font-size:23px;
+}
+
+.bottom-button{
+  flex:1;
+  border:none;
+  background:#111;
+  color:white;
+  border-radius:14px;
+  padding:15px;
+  font-weight:800;
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:520px){
 
+  .app{
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .brand-logo{
+    width:122px;
+    height:122px;
+  }
+
   .hero h1{
-    font-size:38px;
+    font-size:44px;
   }
 
-  .preview{
-    padding:10px;
+  .hero-sub{
+    font-size:16px;
   }
 
-  .bigCup{
-    height:245px;
+  .product-stage{
+    grid-template-columns:1.34fr .73fr .43fr;
+    padding:15px 10px;
   }
 
-  .middleCup{
-    height:130px;
+  .big-cup{
+    height:275px;
   }
 
-  .cupLogo{
-    width:82px;
-    height:82px;
-    font-size:13px;
+  .topping-cup{
+    height:150px;
+  }
+
+  .honey-cup{
+    height:72px;
+  }
+
+  .cup-logo{
+    width:88px;
+    height:88px;
+  }
+
+  .cup-logo strong{
+    font-size:14px;
+  }
+
+  .option{
+    padding:13px 11px;
+    font-size:15px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{
+    scroll-behavior:auto !important;
+    animation:none !important;
+    transition:none !important;
   }
 }
 </style>
@@ -319,147 +699,483 @@ textarea{
 
 <div class="app">
 
-<div class="logo">
-  <strong>DELEITE</strong>
-  <span>RICO, FRESCO Y SALUDABLE</span>
-</div>
-
-<div class="hero">
-  <small>ARMÁ EL TUYO</small>
-  <h1>Tu vaso,<br>tus reglas.</h1>
-  <p>500 ml · $6.000 · Delivery sin costo</p>
-</div>
-
-<div class="preview">
-
-  <div class="bigCup">
-    <div class="layer baseBottom"></div>
-    <div class="layer fruitLayer" id="fruitVisual"></div>
-    <div class="layer baseTop"></div>
-    <div class="cupLogo">DELEITE</div>
+  <!-- LOGO -->
+  <div class="brand-logo">
+    <strong>DELEITE</strong>
+    <span>RICO, FRESCO Y SALUDABLE</span>
   </div>
 
-  <div>
-    <div class="middleCup" id="toppingVisual"></div>
-    <div class="caption">TOPPINGS APARTE</div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-kicker">ARMÁ EL TUYO</div>
+
+    <h1>
+      Tu vaso,<br>
+      tus reglas.
+    </h1>
+
+    <p class="hero-sub">
+      500 ml · $6.000 · Delivery sin costo
+    </p>
+  </section>
+
+  <!-- PRODUCTO -->
+  <section class="product-stage">
+
+    <div class="product-col">
+
+      <div class="big-cup">
+
+        <div
+          class="cup-layer base-bottom"
+          id="baseBottom">
+        </div>
+
+        <div
+          class="cup-layer fruit-layer"
+          id="fruitVisual">
+        </div>
+
+        <div
+          class="cup-layer base-top"
+          id="baseTop">
+        </div>
+
+        <div class="cup-logo">
+          <strong>DELEITE</strong>
+          <span>RICO, FRESCO Y SALUDABLE</span>
+        </div>
+
+      </div>
+
+      <div class="stage-caption">
+        BASE · FRUTA · BASE
+      </div>
+
+    </div>
+
+    <div class="product-col">
+
+      <div
+        class="topping-cup"
+        id="toppingVisual">
+      </div>
+
+      <div class="stage-caption">
+        TOPPINGS<br>APARTE
+      </div>
+
+    </div>
+
+    <div class="product-col">
+
+      <div class="honey-cup">
+
+        <div class="honey-label">
+          MIEL
+        </div>
+
+        <div class="honey-fill"></div>
+
+      </div>
+
+      <div class="stage-caption">
+        INCLUIDA
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BASE -->
+  <section class="section">
+
+    <div class="section-title">
+      <div class="step">1</div>
+      <h2>Elegí tu base</h2>
+    </div>
+
+    <p class="help">
+      Elegí una opción.
+    </p>
+
+    <div
+      class="option-grid"
+      id="baseOptions">
+    </div>
+
+  </section>
+
+  <!-- FRUTAS -->
+  <section class="section">
+
+    <div class="section-title">
+      <div class="step">2</div>
+      <h2>Elegí tus frutas</h2>
+    </div>
+
+    <p class="help">
+      Podés elegir una o varias. No cambia el precio.
+    </p>
+
+    <div
+      class="option-grid"
+      id="fruitOptions">
+    </div>
+
+  </section>
+
+  <!-- TOPPINGS -->
+  <section class="section">
+
+    <div class="section-title">
+      <div class="step">3</div>
+      <h2>Elegí tus toppings</h2>
+    </div>
+
+    <p class="help">
+      Podés elegir uno, varios o ninguno. Van en un vasito aparte.
+    </p>
+
+    <div
+      class="option-grid"
+      id="toppingOptions">
+    </div>
+
+  </section>
+
+  <!-- CANTIDAD -->
+  <section class="section">
+
+    <div class="section-title">
+      <div class="step">4</div>
+      <h2>Cantidad</h2>
+    </div>
+
+    <p class="help">
+      Esta cantidad corresponde a vasos iguales.
+    </p>
+
+    <div class="quantity-box">
+
+      <div class="quantity-controls">
+
+        <button
+          class="qty-button"
+          id="minusQty"
+          type="button">
+          −
+        </button>
+
+        <div
+          class="qty-value"
+          id="quantityValue">
+          1
+        </div>
+
+        <button
+          class="qty-button"
+          id="plusQty"
+          type="button">
+          +
+        </button>
+
+      </div>
+
+      <div
+        class="qty-price"
+        id="currentSubtotal">
+        $6.000
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- AGREGAR -->
+  <section class="section">
+
+    <button
+      class="primary"
+      id="addToCart"
+      type="button">
+      Agregar este vaso al carrito
+    </button>
+
+  </section>
+
+  <!-- CARRITO -->
+  <section
+    class="section"
+    id="cartSection">
+
+    <div class="section-title">
+      <div class="step">5</div>
+      <h2>Tu carrito</h2>
+    </div>
+
+    <p class="help">
+      Podés agregar vasos con combinaciones diferentes.
+    </p>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cartTotal">$0</span>
+    </div>
+
+  </section>
+
+  <!-- PAGO -->
+  <section class="section">
+
+    <div class="section-title">
+      <div class="step">6</div>
+      <h2>Forma de pago</h2>
+    </div>
+
+    <p class="help">
+      Elegí cómo vas a pagar.
+    </p>
+
+    <div
+      class="option-grid"
+      id="paymentOptions">
+    </div>
+
+  </section>
+
+  <!-- ENTREGA -->
+  <section class="section">
+
+    <div class="section-title">
+      <div class="step">7</div>
+      <h2>Entrega</h2>
+    </div>
+
+    <p class="help">
+      El delivery no tiene costo adicional.
+    </p>
+
+    <div
+      class="option-grid"
+      id="deliveryOptions">
+    </div>
+
+    <div
+      id="deliveryFields"
+      class="hidden">
+
+      <div class="field">
+
+        <label for="address">
+          Dirección exacta *
+        </label>
+
+        <input
+          id="address"
+          type="text"
+          placeholder="Ej: San Martín 1234">
+
+      </div>
+
+      <div class="field">
+
+        <label for="reference">
+          Referencia del domicilio
+        </label>
+
+        <input
+          id="reference"
+          type="text"
+          placeholder="Ej: Casa blanca, portón negro">
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CLIENTE -->
+  <section class="section">
+
+    <div class="section-title">
+      <div class="step">8</div>
+      <h2>Tus datos</h2>
+    </div>
+
+    <div class="field">
+
+      <label for="customerName">
+        Nombre *
+      </label>
+
+      <input
+        id="customerName"
+        type="text"
+        placeholder="Tu nombre">
+
+    </div>
+
+    <div class="field">
+
+      <label for="customerPhone">
+        Teléfono *
+      </label>
+
+      <input
+        id="customerPhone"
+        type="tel"
+        inputmode="tel"
+        placeholder="Tu número de teléfono">
+
+    </div>
+
+    <div class="field">
+
+      <label for="notes">
+        Observaciones
+      </label>
+
+      <textarea
+        id="notes"
+        placeholder="Opcional">
+      </textarea>
+
+    </div>
+
+  </section>
+
+  <!-- RESUMEN -->
+  <section class="section">
+
+    <div class="section-title">
+      <div class="step">9</div>
+      <h2>Resumen</h2>
+    </div>
+
+    <div
+      class="summary-box"
+      id="summary">
+      Todavía no agregaste vasos al carrito.
+    </div>
+
+    <button
+      class="whatsapp"
+      id="whatsappButton"
+      type="button">
+      Realizar pedido por WhatsApp
+    </button>
+
+  </section>
+
+</div>
+
+<!-- BARRA INFERIOR -->
+
+<div class="bottom-bar">
+
+  <div class="bottom-inner">
+
+    <div class="bottom-price">
+
+      <small>TOTAL</small>
+
+      <strong id="bottomTotal">
+        $0
+      </strong>
+
+    </div>
+
+    <button
+      class="bottom-button"
+      id="viewCartButton"
+      type="button">
+      Ver pedido
+    </button>
+
   </div>
-
-  <div>
-    <div class="honeyCup">MIEL</div>
-    <div class="caption">INCLUIDA</div>
-  </div>
-
-</div>
-
-<section>
-<h2>1. Elegí tu base</h2>
-<div class="grid" id="bases"></div>
-</section>
-
-<section>
-<h2>2. Elegí tus frutas</h2>
-<p class="description">Podés elegir una o varias. No cambia el precio.</p>
-<div class="grid" id="fruits"></div>
-</section>
-
-<section>
-<h2>3. Elegí tus toppings</h2>
-<p class="description">Van en un vasito aparte. Podés elegir uno o varios.</p>
-<div class="grid" id="toppings"></div>
-</section>
-
-<section>
-<h2>4. Cantidad de vasos iguales</h2>
-
-<div class="quantity">
-<button id="minus">−</button>
-<strong id="quantity">1</strong>
-<button id="plus">+</button>
-<strong id="subtotal">$6.000</strong>
-</div>
-
-</section>
-
-<section>
-
-<h2>Carrito</h2>
-
-<p class="description">
-Podés agregar un vaso y después armar otro diferente.
-</p>
-
-<button class="primary" id="addCart">
-Agregar al carrito
-</button>
-
-<div id="cart"></div>
-
-<div class="total">
-Total: <span id="total">$0</span>
-</div>
-
-</section>
-
-<section>
-
-<h2>5. Forma de pago</h2>
-
-<div class="grid" id="payments"></div>
-
-</section>
-
-<section>
-
-<h2>6. Entrega</h2>
-
-<div class="grid" id="delivery"></div>
-
-<div id="addressFields" class="hidden">
-
-<input
-id="address"
-placeholder="Dirección exacta *"
->
-
-<input
-id="reference"
-placeholder="Referencia del domicilio (opcional)"
->
-
-</div>
-
-</section>
-
-<section>
-
-<h2>Datos del cliente</h2>
-
-<input id="name" placeholder="Nombre *">
-
-<input id="phone" placeholder="Teléfono *">
-
-<textarea
-id="notes"
-placeholder="Observaciones (opcional)"
-></textarea>
-
-</section>
-
-<section>
-
-<button class="whatsapp" id="whatsapp">
-Realizar pedido por WhatsApp
-</button>
-
-</section>
 
 </div>
 
 <script>
 
+/* =========================
+   CONFIGURACIÓN
+========================= */
+
 const PRICE = 6000;
 
-const WHATSAPP = "5493865341241";
+const WHATSAPP_NUMBER =
+"5493865341241";
+
+const bases = [
+  {
+    name:"Yogur griego",
+    description:"Cremoso y artesanal"
+  },
+  {
+    name:"Pudín de chía",
+    description:"Textura suave con semillas de chía"
+  }
+];
+
+const fruits = [
+  {
+    name:"Arándano",
+    icon:"🫐"
+  },
+  {
+    name:"Frutilla",
+    icon:"🍓"
+  },
+  {
+    name:"Durazno",
+    icon:"🍑"
+  },
+  {
+    name:"Banana",
+    icon:"🍌"
+  },
+  {
+    name:"Kiwi",
+    icon:"🥝"
+  }
+];
+
+const toppings = [
+  {
+    name:"Granola",
+    icon:"🥣"
+  },
+  {
+    name:"Cereales sin azúcar",
+    icon:"⭕"
+  },
+  {
+    name:"Frutos secos",
+    icon:"🥜"
+  },
+  {
+    name:"Avena",
+    icon:"🌾"
+  }
+];
+
+const payments = [
+  "Transferencia",
+  "Efectivo"
+];
+
+const deliveries = [
+  "Lo vengo a buscar",
+  "Delivery sin costo"
+];
+
+/* =========================
+   ESTADO
+========================= */
 
 const state = {
 
@@ -479,258 +1195,316 @@ const state = {
 
 };
 
-const fruitList = [
-
-  ["Arándano","🫐"],
-
-  ["Frutilla","🍓"],
-
-  ["Durazno","🍑"],
-
-  ["Banana","🍌"],
-
-  ["Kiwi","🥝"]
-
-];
-
-const toppingList = [
-
-  ["Granola","🥣"],
-
-  ["Cereales sin azúcar","⭕"],
-
-  ["Frutos secos","🥜"],
-
-  ["Avena","🌾"]
-
-];
+/* =========================
+   FORMATO DINERO
+========================= */
 
 function money(value){
 
-  return "$" + value.toLocaleString("es-AR");
+  return "$" +
+  Number(value)
+  .toLocaleString("es-AR");
 
 }
 
-function createOptions(
+/* =========================
+   CREAR OPCIONES
+========================= */
 
-  container,
-
-  values,
-
-  property,
-
-  multiple=false
-
+function createOptionButton(
+  item,
+  type,
+  multiple
 ){
 
-  const box =
-  document.getElementById(container);
+  const name =
+  typeof item === "string"
+  ? item
+  : item.name;
 
-  values.forEach(item=>{
+  const button =
+  document.createElement("button");
 
-    const name =
-    Array.isArray(item)
-    ? item[0]
-    : item;
+  button.type="button";
+
+  button.className="option";
+
+  button.dataset.name=name;
+
+  if(
+    typeof item !== "string"
+    &&
+    item.icon
+  ){
 
     const icon =
-    Array.isArray(item)
-    ? item[1]
-    : "";
+    document.createElement("span");
 
-    const button =
-    document.createElement("button");
+    icon.className=
+    "option-icon";
 
-    button.className="option";
+    icon.textContent=
+    item.icon;
 
-    button.dataset.name=name;
+    button.appendChild(icon);
 
-    button.textContent =
-    icon
-    ? icon+" "+name
-    : name;
+  }
 
-    button.onclick=()=>{
+  const title =
+  document.createElement("strong");
+
+  title.textContent=name;
+
+  button.appendChild(title);
+
+  if(
+    typeof item !== "string"
+    &&
+    item.description
+  ){
+
+    const desc =
+    document.createElement("span");
+
+    desc.className=
+    "option-description";
+
+    desc.textContent=
+    item.description;
+
+    button.appendChild(desc);
+
+  }
+
+  const check =
+  document.createElement("span");
+
+  check.className=
+  "option-check";
+
+  check.textContent="✓";
+
+  button.appendChild(check);
+
+  button.addEventListener(
+    "click",
+    function(){
 
       if(multiple){
 
-        if(state[property].has(name)){
+        const set =
+        state[type];
 
-          state[property].delete(name);
+        if(
+          set.has(name)
+        ){
+
+          set.delete(name);
 
         }else{
 
-          state[property].add(name);
+          set.add(name);
 
         }
 
       }else{
 
-        state[property]=name;
+        state[type]=name;
 
       }
 
       render();
 
-    };
+    }
+  );
 
-    box.appendChild(button);
-
-  });
+  return button;
 
 }
 
-createOptions(
+/* =========================
+   RENDER OPCIONES
+========================= */
 
-  "bases",
+function buildOptions(){
 
-  [
-    "Yogur griego",
-    "Pudín de chía"
-  ],
+  const baseBox =
+  document
+  .getElementById(
+    "baseOptions"
+  );
 
-  "base"
+  bases.forEach(
+    item=>{
 
-);
+      baseBox.appendChild(
+        createOptionButton(
+          item,
+          "base",
+          false
+        )
+      );
 
-createOptions(
+    }
+  );
 
-  "fruits",
+  const fruitBox =
+  document
+  .getElementById(
+    "fruitOptions"
+  );
 
-  fruitList,
+  fruits.forEach(
+    item=>{
 
-  "fruits",
+      fruitBox.appendChild(
+        createOptionButton(
+          item,
+          "fruits",
+          true
+        )
+      );
 
-  true
+    }
+  );
 
-);
+  const toppingBox =
+  document
+  .getElementById(
+    "toppingOptions"
+  );
 
-createOptions(
+  toppings.forEach(
+    item=>{
 
-  "toppings",
+      toppingBox.appendChild(
+        createOptionButton(
+          item,
+          "toppings",
+          true
+        )
+      );
 
-  toppingList,
+    }
+  );
 
-  "toppings",
+  const paymentBox =
+  document
+  .getElementById(
+    "paymentOptions"
+  );
 
-  true
+  payments.forEach(
+    item=>{
 
-);
+      paymentBox.appendChild(
+        createOptionButton(
+          item,
+          "payment",
+          false
+        )
+      );
 
-createOptions(
+    }
+  );
 
-  "payments",
+  const deliveryBox =
+  document
+  .getElementById(
+    "deliveryOptions"
+  );
 
-  [
-    "Transferencia",
-    "Efectivo"
-  ],
+  deliveries.forEach(
+    item=>{
 
-  "payment"
+      deliveryBox.appendChild(
+        createOptionButton(
+          item,
+          "delivery",
+          false
+        )
+      );
 
-);
+    }
+  );
 
-createOptions(
+}
 
-  "delivery",
+/* =========================
+   MARCAR SELECCIONES
+========================= */
 
-  [
-    "Lo vengo a buscar",
-    "Delivery sin costo"
-  ],
-
-  "delivery"
-
-);
-
-function updateOptions(
-
-  container,
-
-  test
-
+function updateActiveButtons(
+  containerId,
+  tester
 ){
 
+  const buttons =
   document
   .querySelectorAll(
-    "#"+container+" .option"
-  )
-  .forEach(button=>{
+    "#" +
+    containerId +
+    " .option"
+  );
 
-    button
-    .classList
-    .toggle(
+  buttons.forEach(
+    button=>{
 
-      "active",
+      button
+      .classList
+      .toggle(
+        "active",
+        tester(
+          button.dataset.name
+        )
+      );
 
-      test(
-        button.dataset.name
-      )
-
-    );
-
-  });
+    }
+  );
 
 }
 
-function render(){
+/* =========================
+   ANIMACIÓN PRODUCTO
+========================= */
 
-  updateOptions(
+function renderProduct(){
 
-    "bases",
-
-    value =>
-    value === state.base
-
-  );
-
-  updateOptions(
-
-    "fruits",
-
-    value =>
-    state.fruits.has(value)
-
-  );
-
-  updateOptions(
-
-    "toppings",
-
-    value =>
-    state.toppings.has(value)
-
-  );
-
-  updateOptions(
-
-    "payments",
-
-    value =>
-    value === state.payment
-
-  );
-
-  updateOptions(
-
-    "delivery",
-
-    value =>
-    value === state.delivery
-
-  );
-
+  const bottom =
   document
-  .getElementById("quantity")
-  .textContent =
-  state.quantity;
-
-  document
-  .getElementById("subtotal")
-  .textContent =
-  money(
-    state.quantity * PRICE
+  .getElementById(
+    "baseBottom"
   );
+
+  const top =
+  document
+  .getElementById(
+    "baseTop"
+  );
+
+  if(
+    state.base ===
+    "Pudín de chía"
+  ){
+
+    const chia =
+    "repeating-radial-gradient(circle at 4px 4px,#555 0 1px,#e8e0d2 1.8px 8px)";
+
+    bottom.style.background=
+    chia;
+
+    top.style.background=
+    chia;
+
+  }else{
+
+    bottom.style.background=
+    "#f3ecdf";
+
+    top.style.background=
+    "#f3ecdf";
+
+  }
 
   const fruitVisual =
   document
@@ -738,19 +1512,34 @@ function render(){
     "fruitVisual"
   );
 
-  fruitVisual.innerHTML =
-  fruitList
-  .filter(
-    fruit =>
-    state.fruits.has(
-      fruit[0]
-    )
-  )
-  .map(
-    fruit =>
-    "<span>"+fruit[1]+"</span>"
-  )
-  .join("");
+  fruitVisual.innerHTML="";
+
+  fruits.forEach(
+    fruit=>{
+
+      if(
+        state.fruits.has(
+          fruit.name
+        )
+      ){
+
+        const piece =
+        document
+        .createElement("span");
+
+        piece.className=
+        "fruit-piece";
+
+        piece.textContent=
+        fruit.icon;
+
+        fruitVisual
+        .appendChild(piece);
+
+      }
+
+    }
+  );
 
   const toppingVisual =
   document
@@ -758,441 +1547,836 @@ function render(){
     "toppingVisual"
   );
 
-  toppingVisual.innerHTML =
-  toppingList
-  .filter(
-    topping =>
-    state.toppings.has(
-      topping[0]
-    )
-  )
-  .map(
-    topping =>
-    "<span>"+topping[1]+"</span>"
-  )
-  .join("");
+  toppingVisual.innerHTML="";
 
-  const baseColor =
-  state.base ===
-  "Pudín de chía"
-  ?
-  "repeating-radial-gradient(#555 0 1px,#e7dfd0 2px 7px)"
-  :
-  "#f1eadc";
+  toppings.forEach(
+    topping=>{
 
-  document
-  .querySelectorAll(
-    ".baseBottom,.baseTop"
-  )
-  .forEach(layer=>{
+      if(
+        state.toppings.has(
+          topping.name
+        )
+      ){
 
-    layer.style.background =
-    baseColor;
+        const piece =
+        document
+        .createElement("span");
 
-  });
+        piece.className=
+        "topping-piece";
 
-  document
-  .getElementById(
-    "addressFields"
-  )
-  .classList
-  .toggle(
+        piece.textContent=
+        topping.icon;
 
-    "hidden",
+        toppingVisual
+        .appendChild(piece);
 
-    state.delivery !==
-    "Delivery sin costo"
+      }
 
+    }
   );
-
-  renderCart();
 
 }
 
-document
-.getElementById("minus")
-.onclick=()=>{
-
-  state.quantity =
-  Math.max(
-    1,
-    state.quantity-1
-  );
-
-  render();
-
-};
+/* =========================
+   CANTIDAD
+========================= */
 
 document
-.getElementById("plus")
-.onclick=()=>{
+.getElementById(
+  "minusQty"
+)
+.addEventListener(
+  "click",
+  function(){
 
-  state.quantity++;
-
-  render();
-
-};
-
-document
-.getElementById("addCart")
-.onclick=()=>{
-
-  if(
-    state.fruits.size===0
-  ){
-
-    alert(
-      "Elegí al menos una fruta."
+    state.quantity =
+    Math.max(
+      1,
+      state.quantity-1
     );
 
-    return;
+    render();
 
   }
+);
 
-  state.cart.push({
+document
+.getElementById(
+  "plusQty"
+)
+.addEventListener(
+  "click",
+  function(){
 
-    base:
-    state.base,
+    state.quantity =
+    Math.min(
+      20,
+      state.quantity+1
+    );
 
-    fruits:
-    [...state.fruits],
+    render();
 
-    toppings:
-    [...state.toppings],
+  }
+);
 
-    quantity:
-    state.quantity
+/* =========================
+   AGREGAR CARRITO
+========================= */
 
-  });
+document
+.getElementById(
+  "addToCart"
+)
+.addEventListener(
+  "click",
+  function(){
 
-  state.fruits.clear();
+    if(
+      state.fruits.size === 0
+    ){
 
-  state.toppings.clear();
+      alert(
+        "Elegí al menos una fruta."
+      );
 
-  state.quantity=1;
+      return;
 
-  render();
+    }
 
-};
+    state.cart.push({
+
+      base:
+      state.base,
+
+      fruits:
+      Array.from(
+        state.fruits
+      ),
+
+      toppings:
+      Array.from(
+        state.toppings
+      ),
+
+      quantity:
+      state.quantity
+
+    });
+
+    state.fruits.clear();
+
+    state.toppings.clear();
+
+    state.quantity=1;
+
+    render();
+
+    document
+    .getElementById(
+      "cartSection"
+    )
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+  }
+);
+
+/* =========================
+   CARRITO
+========================= */
 
 function renderCart(){
 
-  const cart =
+  const box =
   document
-  .getElementById("cart");
+  .getElementById(
+    "cartItems"
+  );
 
-  cart.innerHTML="";
+  box.innerHTML="";
 
-  state.cart
-  .forEach(
-    (item,index)=>{
+  if(
+    state.cart.length === 0
+  ){
 
-      const box =
-      document
-      .createElement("div");
+    const empty =
+    document
+    .createElement("div");
 
-      box.className=
-      "cartItem";
+    empty.className=
+    "cart-empty";
 
-      box.innerHTML=`
+    empty.textContent=
+    "Tu carrito está vacío.";
 
-        <strong>
-        Vaso ${index+1}
-        ·
-        ${item.base}
-        ×
-        ${item.quantity}
-        </strong>
+    box.appendChild(empty);
 
-        <p>
-        Frutas:
-        ${item.fruits.join(", ")}
-        </p>
+  }else{
 
-        <p>
-        Toppings:
-        ${
+    state.cart
+    .forEach(
+      function(
+        item,
+        index
+      ){
+
+        const card =
+        document
+        .createElement("div");
+
+        card.className=
+        "cart-item";
+
+        const top =
+        document
+        .createElement("div");
+
+        top.className=
+        "cart-top";
+
+        const title =
+        document
+        .createElement("h3");
+
+        title.textContent=
+        "Vaso " +
+        (index+1) +
+        " · " +
+        item.base +
+        " × " +
+        item.quantity;
+
+        const remove =
+        document
+        .createElement("button");
+
+        remove.type="button";
+
+        remove.className=
+        "remove-btn";
+
+        remove.textContent=
+        "Eliminar";
+
+        remove.addEventListener(
+          "click",
+          function(){
+
+            state.cart.splice(
+              index,
+              1
+            );
+
+            render();
+
+          }
+        );
+
+        top.appendChild(title);
+
+        top.appendChild(remove);
+
+        card.appendChild(top);
+
+        const fruitText =
+        document
+        .createElement("p");
+
+        fruitText.textContent=
+        "Frutas: " +
+        item.fruits.join(", ");
+
+        card.appendChild(
+          fruitText
+        );
+
+        const topText =
+        document
+        .createElement("p");
+
+        topText.textContent=
+        "Toppings: " +
+        (
           item.toppings.length
           ?
           item.toppings.join(", ")
           :
           "Sin toppings"
-        }
-        </p>
-
-        <p>
-        Miel incluida
-        en botecito aparte
-        </p>
-
-        <strong>
-        ${
-          money(
-            item.quantity *
-            PRICE
-          )
-        }
-        </strong>
-
-      `;
-
-      const remove =
-      document
-      .createElement("button");
-
-      remove.textContent =
-      "Eliminar";
-
-      remove.onclick=()=>{
-
-        state.cart.splice(
-          index,
-          1
         );
 
-        renderCart();
+        card.appendChild(
+          topText
+        );
 
-      };
+        const honey =
+        document
+        .createElement("p");
 
-      box.appendChild(remove);
+        honey.textContent=
+        "Miel incluida en botecito aparte.";
 
-      cart.appendChild(box);
+        card.appendChild(
+          honey
+        );
 
-    }
+        const price =
+        document
+        .createElement("div");
 
-  );
+        price.className=
+        "cart-price";
+
+        price.textContent=
+        money(
+          item.quantity *
+          PRICE
+        );
+
+        card.appendChild(
+          price
+        );
+
+        box.appendChild(
+          card
+        );
+
+      }
+    );
+
+  }
 
   const total =
-  state.cart
-  .reduce(
-
-    (
-      total,
-      item
-    ) =>
-
-    total +
-    item.quantity *
-    PRICE,
-
-    0
-
-  );
+  getCartTotal();
 
   document
-  .getElementById("total")
-  .textContent =
+  .getElementById(
+    "cartTotal"
+  )
+  .textContent=
+  money(total);
+
+  document
+  .getElementById(
+    "bottomTotal"
+  )
+  .textContent=
   money(total);
 
 }
 
-document
-.getElementById("whatsapp")
-.onclick=()=>{
+/* =========================
+   TOTAL
+========================= */
 
-  const name =
-  document
-  .getElementById("name")
-  .value
-  .trim();
+function getCartTotal(){
 
-  const phone =
-  document
-  .getElementById("phone")
-  .value
-  .trim();
-
-  const address =
-  document
-  .getElementById("address")
-  .value
-  .trim();
-
-  const reference =
-  document
-  .getElementById("reference")
-  .value
-  .trim();
-
-  const notes =
-  document
-  .getElementById("notes")
-  .value
-  .trim();
-
-  if(
-    state.cart.length===0
-  ){
-
-    alert(
-      "Agregá al menos un vaso al carrito."
-    );
-
-    return;
-
-  }
-
-  if(
-    !state.payment
-  ){
-
-    alert(
-      "Elegí una forma de pago."
-    );
-
-    return;
-
-  }
-
-  if(
-    !state.delivery
-  ){
-
-    alert(
-      "Elegí una forma de entrega."
-    );
-
-    return;
-
-  }
-
-  if(
-
-    state.delivery ===
-    "Delivery sin costo"
-
-    &&
-
-    !address
-
-  ){
-
-    alert(
-      "Ingresá la dirección exacta."
-    );
-
-    return;
-
-  }
-
-  if(
-    !name ||
-    !phone
-  ){
-
-    alert(
-      "Completá nombre y teléfono."
-    );
-
-    return;
-
-  }
-
-  const items =
-  state.cart
-  .map(
-    (
-      item,
-      index
-    ) =>
-
-`Vaso ${index+1} — 500 ml
-Base: ${item.base}
-Frutas: ${item.fruits.join(", ")}
-Toppings: ${
-item.toppings.length
-?
-item.toppings.join(", ")
-:
-"Sin toppings"
-}
-Miel: incluida aparte
-Cantidad: ${item.quantity}
-Subtotal: ${
-money(
-item.quantity*PRICE
-)
-}`
-
-  )
-  .join("\n\n");
-
-  const total =
-  state.cart
+  return state.cart
   .reduce(
-
-    (
+    function(
       sum,
       item
-    ) =>
+    ){
 
-    sum +
-    item.quantity *
-    PRICE,
+      return (
+        sum +
+        item.quantity *
+        PRICE
+      );
 
+    },
     0
-
   );
 
-  const message =
-
-`Hola DELEITE 👋
-Quiero realizar un pedido.
-
-${items}
-
-Forma de pago:
-${state.payment}
-
-Entrega:
-${state.delivery}
-
-${
-address
-?
-"Dirección: "+address
-:
-""
 }
 
-${
-reference
-?
-"Referencia: "+reference
-:
-""
-}
+/* =========================
+   RESUMEN
+========================= */
 
-Nombre:
-${name}
+function renderSummary(){
 
-Teléfono:
-${phone}
-
-${
-notes
-?
-"Observaciones: "+notes
-:
-""
-}
-
-TOTAL:
-${money(total)}`;
-
-  window.location.href=
-
-  "https://wa.me/"
-  +
-  WHATSAPP
-  +
-  "?text="
-  +
-  encodeURIComponent(
-    message
+  const summary =
+  document
+  .getElementById(
+    "summary"
   );
 
-};
+  if(
+    state.cart.length === 0
+  ){
+
+    summary.textContent=
+    "Todavía no agregaste vasos al carrito.";
+
+    return;
+
+  }
+
+  let text="";
+
+  state.cart
+  .forEach(
+    function(
+      item,
+      index
+    ){
+
+      text +=
+      "VASO " +
+      (index+1) +
+      "\n";
+
+      text +=
+      "Base: " +
+      item.base +
+      "\n";
+
+      text +=
+      "Frutas: " +
+      item.fruits.join(", ") +
+      "\n";
+
+      text +=
+      "Toppings: " +
+      (
+        item.toppings.length
+        ?
+        item.toppings.join(", ")
+        :
+        "Sin toppings"
+      ) +
+      "\n";
+
+      text +=
+      "Miel: incluida aparte\n";
+
+      text +=
+      "Cantidad: " +
+      item.quantity +
+      "\n";
+
+      text +=
+      "Subtotal: " +
+      money(
+        item.quantity *
+        PRICE
+      ) +
+      "\n\n";
+
+    }
+  );
+
+  text +=
+  "TOTAL: " +
+  money(
+    getCartTotal()
+  );
+
+  summary.textContent=text;
+
+}
+
+/* =========================
+   DELIVERY
+========================= */
+
+function renderDelivery(){
+
+  const fields =
+  document
+  .getElementById(
+    "deliveryFields"
+  );
+
+  fields
+  .classList
+  .toggle(
+    "hidden",
+    state.delivery !==
+    "Delivery sin costo"
+  );
+
+}
+
+/* =========================
+   RENDER GENERAL
+========================= */
+
+function render(){
+
+  updateActiveButtons(
+    "baseOptions",
+    function(name){
+
+      return (
+        name ===
+        state.base
+      );
+
+    }
+  );
+
+  updateActiveButtons(
+    "fruitOptions",
+    function(name){
+
+      return (
+        state.fruits
+        .has(name)
+      );
+
+    }
+  );
+
+  updateActiveButtons(
+    "toppingOptions",
+    function(name){
+
+      return (
+        state.toppings
+        .has(name)
+      );
+
+    }
+  );
+
+  updateActiveButtons(
+    "paymentOptions",
+    function(name){
+
+      return (
+        name ===
+        state.payment
+      );
+
+    }
+  );
+
+  updateActiveButtons(
+    "deliveryOptions",
+    function(name){
+
+      return (
+        name ===
+        state.delivery
+      );
+
+    }
+  );
+
+  document
+  .getElementById(
+    "quantityValue"
+  )
+  .textContent=
+  state.quantity;
+
+  document
+  .getElementById(
+    "currentSubtotal"
+  )
+  .textContent=
+  money(
+    state.quantity *
+    PRICE
+  );
+
+  renderProduct();
+
+  renderCart();
+
+  renderDelivery();
+
+  renderSummary();
+
+}
+
+/* =========================
+   VER CARRITO
+========================= */
+
+document
+.getElementById(
+  "viewCartButton"
+)
+.addEventListener(
+  "click",
+  function(){
+
+    document
+    .getElementById(
+      "cartSection"
+    )
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+  }
+);
+
+/* =========================
+   WHATSAPP
+========================= */
+
+document
+.getElementById(
+  "whatsappButton"
+)
+.addEventListener(
+  "click",
+  function(){
+
+    const customerName =
+    document
+    .getElementById(
+      "customerName"
+    )
+    .value
+    .trim();
+
+    const customerPhone =
+    document
+    .getElementById(
+      "customerPhone"
+    )
+    .value
+    .trim();
+
+    const address =
+    document
+    .getElementById(
+      "address"
+    )
+    .value
+    .trim();
+
+    const reference =
+    document
+    .getElementById(
+      "reference"
+    )
+    .value
+    .trim();
+
+    const notes =
+    document
+    .getElementById(
+      "notes"
+    )
+    .value
+    .trim();
+
+    if(
+      state.cart.length === 0
+    ){
+
+      alert(
+        "Primero agregá al menos un vaso al carrito."
+      );
+
+      return;
+
+    }
+
+    if(
+      !state.payment
+    ){
+
+      alert(
+        "Elegí una forma de pago."
+      );
+
+      return;
+
+    }
+
+    if(
+      !state.delivery
+    ){
+
+      alert(
+        "Elegí una forma de entrega."
+      );
+
+      return;
+
+    }
+
+    if(
+      state.delivery ===
+      "Delivery sin costo"
+      &&
+      !address
+    ){
+
+      alert(
+        "Ingresá la dirección exacta para el delivery."
+      );
+
+      return;
+
+    }
+
+    if(
+      !customerName
+    ){
+
+      alert(
+        "Ingresá tu nombre."
+      );
+
+      return;
+
+    }
+
+    if(
+      !customerPhone
+    ){
+
+      alert(
+        "Ingresá tu teléfono."
+      );
+
+      return;
+
+    }
+
+    let products="";
+
+    state.cart
+    .forEach(
+      function(
+        item,
+        index
+      ){
+
+        products +=
+        "Vaso " +
+        (index+1) +
+        " — 500 ml\n";
+
+        products +=
+        "Base: " +
+        item.base +
+        "\n";
+
+        products +=
+        "Frutas: " +
+        item.fruits.join(", ") +
+        "\n";
+
+        products +=
+        "Toppings: " +
+        (
+          item.toppings.length
+          ?
+          item.toppings.join(", ")
+          :
+          "Sin toppings"
+        ) +
+        "\n";
+
+        products +=
+        "Miel: incluida en botecito aparte\n";
+
+        products +=
+        "Cantidad: " +
+        item.quantity +
+        "\n";
+
+        products +=
+        "Subtotal: " +
+        money(
+          item.quantity *
+          PRICE
+        ) +
+        "\n\n";
+
+      }
+    );
+
+    let message =
+    "Hola DELEITE 👋\n" +
+    "Quiero realizar un pedido.\n\n";
+
+    message += products;
+
+    message +=
+    "Forma de pago: " +
+    state.payment +
+    "\n";
+
+    message +=
+    "Entrega: " +
+    state.delivery +
+    "\n";
+
+    if(
+      state.delivery ===
+      "Delivery sin costo"
+    ){
+
+      message +=
+      "Dirección: " +
+      address +
+      "\n";
+
+      if(reference){
+
+        message +=
+        "Referencia: " +
+        reference +
+        "\n";
+
+      }
+
+    }
+
+    message +=
+    "Nombre: " +
+    customerName +
+    "\n";
+
+    message +=
+    "Teléfono: " +
+    customerPhone +
+    "\n";
+
+    if(notes){
+
+      message +=
+      "Observaciones: " +
+      notes +
+      "\n";
+
+    }
+
+    message +=
+    "\nTOTAL: " +
+    money(
+      getCartTotal()
+    );
+
+    const url =
+    "https://wa.me/" +
+    WHATSAPP_NUMBER +
+    "?text=" +
+    encodeURIComponent(
+      message
+    );
+
+    window.location.href=url;
+
+  }
+);
+
+/* =========================
+   INICIAR
+========================= */
+
+buildOptions();
 
 render();
 
