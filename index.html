@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DELEITE</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#fff;
+  color:#111;
+}
+
+.app{
+  max-width:760px;
+  margin:auto;
+  padding:20px 16px 120px;
+}
+
+.logo{
+  width:120px;
+  height:120px;
+  border:2px solid #111;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+
+.logo strong{
+  font-size:24px;
+}
+
+.logo span{
+  font-size:7px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.hero{
+  margin-top:25px;
+}
+
+.hero small{
+  letter-spacing:5px;
+}
+
+.hero h1{
+  font-size:44px;
+  line-height:.95;
+  margin:12px 0;
+}
+
+.hero p{
+  color:#666;
+}
+
+.preview{
+  display:grid;
+  grid-template-columns:1.3fr .7fr .42fr;
+  gap:10px;
+  align-items:end;
+  background:#f7f7f5;
+  padding:15px;
+  border-radius:22px;
+  margin:22px 0;
+}
+
+.bigCup{
+  height:280px;
+  border:3px solid #aaa;
+  border-radius:12px 12px 28px 28px;
+  position:relative;
+  overflow:hidden;
+  background:rgba(255,255,255,.4);
+}
+
+.layer{
+  position:absolute;
+  width:100%;
+  transition:.4s ease;
+}
+
+.baseBottom{
+  bottom:0;
+  height:35%;
+  background:#f1eadc;
+}
+
+.fruitLayer{
+  bottom:35%;
+  height:30%;
+  background:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:4px;
+  font-size:27px;
+}
+
+.baseTop{
+  bottom:65%;
+  height:35%;
+  background:#f1eadc;
+}
+
+.cupLogo{
+  position:absolute;
+  z-index:5;
+  top:48%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:95px;
+  height:95px;
+  border:2px solid #111;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  background:rgba(255,255,255,.12);
+}
+
+.middleCup{
+  height:150px;
+  border:3px solid #aaa;
+  border-radius:10px 10px 22px 22px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-content:flex-end;
+  padding:10px;
+  font-size:24px;
+}
+
+.honeyCup{
+  height:75px;
+  border:3px solid #aaa;
+  border-radius:8px 8px 16px 16px;
+  background:linear-gradient(
+    to top,
+    #d8931b 65%,
+    transparent 65%
+  );
+  text-align:center;
+  padding-top:5px;
+  font-size:10px;
+}
+
+.caption{
+  text-align:center;
+  font-size:10px;
+  margin-top:5px;
+}
+
+section{
+  padding:20px 0;
+  border-top:1px solid #ddd;
+}
+
+h2{
+  margin:0 0 7px;
+}
+
+.description{
+  color:#666;
+  font-size:14px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+}
+
+.option{
+  background:#fff;
+  border:1px solid #ccc;
+  border-radius:14px;
+  padding:14px;
+  font-size:16px;
+  text-align:left;
+}
+
+.option.active{
+  border:2px solid #111;
+  font-weight:bold;
+}
+
+.quantity{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.quantity button{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:white;
+  border:1px solid #bbb;
+  font-size:22px;
+}
+
+.quantity strong{
+  font-size:22px;
+}
+
+.primary{
+  background:#111;
+  color:white;
+  border:none;
+  border-radius:13px;
+  padding:15px 18px;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.cartItem{
+  border:1px solid #ddd;
+  border-radius:14px;
+  padding:13px;
+  margin-top:10px;
+}
+
+.cartItem p{
+  color:#555;
+  margin:5px 0;
+  font-size:14px;
+}
+
+.cartItem button{
+  border:none;
+  background:none;
+  color:#a00;
+}
+
+.total{
+  font-size:28px;
+  font-weight:bold;
+  margin-top:15px;
+}
+
+input,
+textarea{
+  width:100%;
+  font-size:16px;
+  padding:13px;
+  border:1px solid #ccc;
+  border-radius:12px;
+  margin-top:8px;
+}
+
+textarea{
+  min-height:80px;
+}
+
+.hidden{
+  display:none;
+}
+
+.whatsapp{
+  width:100%;
+  background:#20a957;
+  color:white;
+  border:none;
+  padding:17px;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+@media(max-width:520px){
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  .preview{
+    padding:10px;
+  }
+
+  .bigCup{
+    height:245px;
+  }
+
+  .middleCup{
+    height:130px;
+  }
+
+  .cupLogo{
+    width:82px;
+    height:82px;
+    font-size:13px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="logo">
+  <strong>DELEITE</strong>
+  <span>RICO, FRESCO Y SALUDABLE</span>
+</div>
+
+<div class="hero">
+  <small>ARMÁ EL TUYO</small>
+  <h1>Tu vaso,<br>tus reglas.</h1>
+  <p>500 ml · $6.000 · Delivery sin costo</p>
+</div>
+
+<div class="preview">
+
+  <div class="bigCup">
+    <div class="layer baseBottom"></div>
+    <div class="layer fruitLayer" id="fruitVisual"></div>
+    <div class="layer baseTop"></div>
+    <div class="cupLogo">DELEITE</div>
+  </div>
+
+  <div>
+    <div class="middleCup" id="toppingVisual"></div>
+    <div class="caption">TOPPINGS APARTE</div>
+  </div>
+
+  <div>
+    <div class="honeyCup">MIEL</div>
+    <div class="caption">INCLUIDA</div>
+  </div>
+
+</div>
+
+<section>
+<h2>1. Elegí tu base</h2>
+<div class="grid" id="bases"></div>
+</section>
+
+<section>
+<h2>2. Elegí tus frutas</h2>
+<p class="description">Podés elegir una o varias. No cambia el precio.</p>
+<div class="grid" id="fruits"></div>
+</section>
+
+<section>
+<h2>3. Elegí tus toppings</h2>
+<p class="description">Van en un vasito aparte. Podés elegir uno o varios.</p>
+<div class="grid" id="toppings"></div>
+</section>
+
+<section>
+<h2>4. Cantidad de vasos iguales</h2>
+
+<div class="quantity">
+<button id="minus">−</button>
+<strong id="quantity">1</strong>
+<button id="plus">+</button>
+<strong id="subtotal">$6.000</strong>
+</div>
+
+</section>
+
+<section>
+
+<h2>Carrito</h2>
+
+<p class="description">
+Podés agregar un vaso y después armar otro diferente.
+</p>
+
+<button class="primary" id="addCart">
+Agregar al carrito
+</button>
+
+<div id="cart"></div>
+
+<div class="total">
+Total: <span id="total">$0</span>
+</div>
+
+</section>
+
+<section>
+
+<h2>5. Forma de pago</h2>
+
+<div class="grid" id="payments"></div>
+
+</section>
+
+<section>
+
+<h2>6. Entrega</h2>
+
+<div class="grid" id="delivery"></div>
+
+<div id="addressFields" class="hidden">
+
+<input
+id="address"
+placeholder="Dirección exacta *"
+>
+
+<input
+id="reference"
+placeholder="Referencia del domicilio (opcional)"
+>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Datos del cliente</h2>
+
+<input id="name" placeholder="Nombre *">
+
+<input id="phone" placeholder="Teléfono *">
+
+<textarea
+id="notes"
+placeholder="Observaciones (opcional)"
+></textarea>
+
+</section>
+
+<section>
+
+<button class="whatsapp" id="whatsapp">
+Realizar pedido por WhatsApp
+</button>
+
+</section>
+
+</div>
+
+<script>
+
+const PRICE = 6000;
+
+const WHATSAPP = "5493865341241";
+
+const state = {
+
+  base:"Yogur griego",
+
+  fruits:new Set(),
+
+  toppings:new Set(),
+
+  quantity:1,
+
+  payment:"",
+
+  delivery:"",
+
+  cart:[]
+
+};
+
+const fruitList = [
+
+  ["Arándano","🫐"],
+
+  ["Frutilla","🍓"],
+
+  ["Durazno","🍑"],
+
+  ["Banana","🍌"],
+
+  ["Kiwi","🥝"]
+
+];
+
+const toppingList = [
+
+  ["Granola","🥣"],
+
+  ["Cereales sin azúcar","⭕"],
+
+  ["Frutos secos","🥜"],
+
+  ["Avena","🌾"]
+
+];
+
+function money(value){
+
+  return "$" + value.toLocaleString("es-AR");
+
+}
+
+function createOptions(
+
+  container,
+
+  values,
+
+  property,
+
+  multiple=false
+
+){
+
+  const box =
+  document.getElementById(container);
+
+  values.forEach(item=>{
+
+    const name =
+    Array.isArray(item)
+    ? item[0]
+    : item;
+
+    const icon =
+    Array.isArray(item)
+    ? item[1]
+    : "";
+
+    const button =
+    document.createElement("button");
+
+    button.className="option";
+
+    button.dataset.name=name;
+
+    button.textContent =
+    icon
+    ? icon+" "+name
+    : name;
+
+    button.onclick=()=>{
+
+      if(multiple){
+
+        if(state[property].has(name)){
+
+          state[property].delete(name);
+
+        }else{
+
+          state[property].add(name);
+
+        }
+
+      }else{
+
+        state[property]=name;
+
+      }
+
+      render();
+
+    };
+
+    box.appendChild(button);
+
+  });
+
+}
+
+createOptions(
+
+  "bases",
+
+  [
+    "Yogur griego",
+    "Pudín de chía"
+  ],
+
+  "base"
+
+);
+
+createOptions(
+
+  "fruits",
+
+  fruitList,
+
+  "fruits",
+
+  true
+
+);
+
+createOptions(
+
+  "toppings",
+
+  toppingList,
+
+  "toppings",
+
+  true
+
+);
+
+createOptions(
+
+  "payments",
+
+  [
+    "Transferencia",
+    "Efectivo"
+  ],
+
+  "payment"
+
+);
+
+createOptions(
+
+  "delivery",
+
+  [
+    "Lo vengo a buscar",
+    "Delivery sin costo"
+  ],
+
+  "delivery"
+
+);
+
+function updateOptions(
+
+  container,
+
+  test
+
+){
+
+  document
+  .querySelectorAll(
+    "#"+container+" .option"
+  )
+  .forEach(button=>{
+
+    button
+    .classList
+    .toggle(
+
+      "active",
+
+      test(
+        button.dataset.name
+      )
+
+    );
+
+  });
+
+}
+
+function render(){
+
+  updateOptions(
+
+    "bases",
+
+    value =>
+    value === state.base
+
+  );
+
+  updateOptions(
+
+    "fruits",
+
+    value =>
+    state.fruits.has(value)
+
+  );
+
+  updateOptions(
+
+    "toppings",
+
+    value =>
+    state.toppings.has(value)
+
+  );
+
+  updateOptions(
+
+    "payments",
+
+    value =>
+    value === state.payment
+
+  );
+
+  updateOptions(
+
+    "delivery",
+
+    value =>
+    value === state.delivery
+
+  );
+
+  document
+  .getElementById("quantity")
+  .textContent =
+  state.quantity;
+
+  document
+  .getElementById("subtotal")
+  .textContent =
+  money(
+    state.quantity * PRICE
+  );
+
+  const fruitVisual =
+  document
+  .getElementById(
+    "fruitVisual"
+  );
+
+  fruitVisual.innerHTML =
+  fruitList
+  .filter(
+    fruit =>
+    state.fruits.has(
+      fruit[0]
+    )
+  )
+  .map(
+    fruit =>
+    "<span>"+fruit[1]+"</span>"
+  )
+  .join("");
+
+  const toppingVisual =
+  document
+  .getElementById(
+    "toppingVisual"
+  );
+
+  toppingVisual.innerHTML =
+  toppingList
+  .filter(
+    topping =>
+    state.toppings.has(
+      topping[0]
+    )
+  )
+  .map(
+    topping =>
+    "<span>"+topping[1]+"</span>"
+  )
+  .join("");
+
+  const baseColor =
+  state.base ===
+  "Pudín de chía"
+  ?
+  "repeating-radial-gradient(#555 0 1px,#e7dfd0 2px 7px)"
+  :
+  "#f1eadc";
+
+  document
+  .querySelectorAll(
+    ".baseBottom,.baseTop"
+  )
+  .forEach(layer=>{
+
+    layer.style.background =
+    baseColor;
+
+  });
+
+  document
+  .getElementById(
+    "addressFields"
+  )
+  .classList
+  .toggle(
+
+    "hidden",
+
+    state.delivery !==
+    "Delivery sin costo"
+
+  );
+
+  renderCart();
+
+}
+
+document
+.getElementById("minus")
+.onclick=()=>{
+
+  state.quantity =
+  Math.max(
+    1,
+    state.quantity-1
+  );
+
+  render();
+
+};
+
+document
+.getElementById("plus")
+.onclick=()=>{
+
+  state.quantity++;
+
+  render();
+
+};
+
+document
+.getElementById("addCart")
+.onclick=()=>{
+
+  if(
+    state.fruits.size===0
+  ){
+
+    alert(
+      "Elegí al menos una fruta."
+    );
+
+    return;
+
+  }
+
+  state.cart.push({
+
+    base:
+    state.base,
+
+    fruits:
+    [...state.fruits],
+
+    toppings:
+    [...state.toppings],
+
+    quantity:
+    state.quantity
+
+  });
+
+  state.fruits.clear();
+
+  state.toppings.clear();
+
+  state.quantity=1;
+
+  render();
+
+};
+
+function renderCart(){
+
+  const cart =
+  document
+  .getElementById("cart");
+
+  cart.innerHTML="";
+
+  state.cart
+  .forEach(
+    (item,index)=>{
+
+      const box =
+      document
+      .createElement("div");
+
+      box.className=
+      "cartItem";
+
+      box.innerHTML=`
+
+        <strong>
+        Vaso ${index+1}
+        ·
+        ${item.base}
+        ×
+        ${item.quantity}
+        </strong>
+
+        <p>
+        Frutas:
+        ${item.fruits.join(", ")}
+        </p>
+
+        <p>
+        Toppings:
+        ${
+          item.toppings.length
+          ?
+          item.toppings.join(", ")
+          :
+          "Sin toppings"
+        }
+        </p>
+
+        <p>
+        Miel incluida
+        en botecito aparte
+        </p>
+
+        <strong>
+        ${
+          money(
+            item.quantity *
+            PRICE
+          )
+        }
+        </strong>
+
+      `;
+
+      const remove =
+      document
+      .createElement("button");
+
+      remove.textContent =
+      "Eliminar";
+
+      remove.onclick=()=>{
+
+        state.cart.splice(
+          index,
+          1
+        );
+
+        renderCart();
+
+      };
+
+      box.appendChild(remove);
+
+      cart.appendChild(box);
+
+    }
+
+  );
+
+  const total =
+  state.cart
+  .reduce(
+
+    (
+      total,
+      item
+    ) =>
+
+    total +
+    item.quantity *
+    PRICE,
+
+    0
+
+  );
+
+  document
+  .getElementById("total")
+  .textContent =
+  money(total);
+
+}
+
+document
+.getElementById("whatsapp")
+.onclick=()=>{
+
+  const name =
+  document
+  .getElementById("name")
+  .value
+  .trim();
+
+  const phone =
+  document
+  .getElementById("phone")
+  .value
+  .trim();
+
+  const address =
+  document
+  .getElementById("address")
+  .value
+  .trim();
+
+  const reference =
+  document
+  .getElementById("reference")
+  .value
+  .trim();
+
+  const notes =
+  document
+  .getElementById("notes")
+  .value
+  .trim();
+
+  if(
+    state.cart.length===0
+  ){
+
+    alert(
+      "Agregá al menos un vaso al carrito."
+    );
+
+    return;
+
+  }
+
+  if(
+    !state.payment
+  ){
+
+    alert(
+      "Elegí una forma de pago."
+    );
+
+    return;
+
+  }
+
+  if(
+    !state.delivery
+  ){
+
+    alert(
+      "Elegí una forma de entrega."
+    );
+
+    return;
+
+  }
+
+  if(
+
+    state.delivery ===
+    "Delivery sin costo"
+
+    &&
+
+    !address
+
+  ){
+
+    alert(
+      "Ingresá la dirección exacta."
+    );
+
+    return;
+
+  }
+
+  if(
+    !name ||
+    !phone
+  ){
+
+    alert(
+      "Completá nombre y teléfono."
+    );
+
+    return;
+
+  }
+
+  const items =
+  state.cart
+  .map(
+    (
+      item,
+      index
+    ) =>
+
+`Vaso ${index+1} — 500 ml
+Base: ${item.base}
+Frutas: ${item.fruits.join(", ")}
+Toppings: ${
+item.toppings.length
+?
+item.toppings.join(", ")
+:
+"Sin toppings"
+}
+Miel: incluida aparte
+Cantidad: ${item.quantity}
+Subtotal: ${
+money(
+item.quantity*PRICE
+)
+}`
+
+  )
+  .join("\n\n");
+
+  const total =
+  state.cart
+  .reduce(
+
+    (
+      sum,
+      item
+    ) =>
+
+    sum +
+    item.quantity *
+    PRICE,
+
+    0
+
+  );
+
+  const message =
+
+`Hola DELEITE 👋
+Quiero realizar un pedido.
+
+${items}
+
+Forma de pago:
+${state.payment}
+
+Entrega:
+${state.delivery}
+
+${
+address
+?
+"Dirección: "+address
+:
+""
+}
+
+${
+reference
+?
+"Referencia: "+reference
+:
+""
+}
+
+Nombre:
+${name}
+
+Teléfono:
+${phone}
+
+${
+notes
+?
+"Observaciones: "+notes
+:
+""
+}
+
+TOTAL:
+${money(total)}`;
+
+  window.location.href=
+
+  "https://wa.me/"
+  +
+  WHATSAPP
+  +
+  "?text="
+  +
+  encodeURIComponent(
+    message
+  );
+
+};
+
+render();
+
+</script>
+
+</body>
+</html>
