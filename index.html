@@ -2,2384 +2,804 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#ffffff">
-<title>DELEITE | Yogurt Griego & Pudín de Chía</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fffaf2">
+<title>DELEITE | Yogur Griego & Pudín de Chía</title>
 
 <style>
+*{box-sizing:border-box}
 :root{
-  --black:#111111;
-  --gray:#6d6d6d;
-  --light:#f7f6f2;
-  --line:#dfdfdf;
-  --white:#ffffff;
-  --green:#20a957;
+  --black:#171717;
+  --cream:#fffaf2;
+  --soft:#f5eee3;
+  --green:#486b50;
+  --orange:#e8944a;
+  --gray:#777;
+  --line:#e8dfd3;
 }
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+html{scroll-behavior:smooth}
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   color:var(--black);
+  background:var(--cream);
+  padding-bottom:110px;
 }
+button,input,textarea{font:inherit}
+button{cursor:pointer}
 
-button,
-input,
-textarea{
-  font:inherit;
+/* CABECERA */
+header{
+  padding:25px 20px 8px;
+  text-align:center;
 }
-
-button{
-  cursor:pointer;
-}
-
-.app{
-  width:100%;
-  max-width:760px;
-  margin:auto;
-  padding:20px 16px 130px;
-}
-
-/* =========================
-   LOGO
-========================= */
-
-.brand-logo{
-  width:128px;
-  height:128px;
+.logo{
+  width:120px;
+  height:120px;
   border:2px solid #111;
   border-radius:50%;
-  margin:0 auto 25px;
+  margin:auto;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  text-align:center;
+  background:white;
 }
-
-.brand-logo strong{
-  font-size:24px;
+.logo strong{
+  font-size:22px;
   line-height:1;
   white-space:nowrap;
 }
-
-.brand-logo span{
-  margin-top:7px;
+.logo span{
   font-size:5px;
-  font-weight:700;
+  font-weight:800;
+  margin-top:7px;
   white-space:nowrap;
-  letter-spacing:0;
 }
 
-/* =========================
-   HERO
-========================= */
-
+/* HERO */
 .hero{
-  margin-bottom:24px;
+  padding:25px 20px 18px;
+  max-width:700px;
+  margin:auto;
 }
-
-.hero-kicker{
-  font-size:16px;
-  letter-spacing:6px;
-  margin-bottom:16px;
+.kicker{
+  letter-spacing:7px;
+  font-size:13px;
+  margin-bottom:12px;
 }
-
-.hero h1{
+h1{
   font-size:48px;
-  line-height:.96;
-  margin:0 0 18px;
+  line-height:.95;
+  margin:0 0 15px;
   letter-spacing:-2px;
 }
-
-.hero-sub{
-  color:var(--gray);
-  font-size:18px;
-  margin:0;
-}
-
-/* =========================
-   VISTA DEL PRODUCTO
-========================= */
-
-.product-stage{
-  background:var(--light);
-  border-radius:28px;
-  padding:20px 14px 16px;
-  display:grid;
-  grid-template-columns:1.35fr .72fr .42fr;
-  gap:12px;
-  align-items:end;
-  margin-bottom:30px;
-}
-
-.product-col{
-  text-align:center;
-  min-width:0;
-}
-
-/* Vaso grande */
-
-.big-cup{
-  height:310px;
-  position:relative;
-  border:3px solid #aaa;
-  border-top:4px solid #999;
-  border-radius:16px 16px 34px 34px;
-  overflow:hidden;
-  background:rgba(255,255,255,.65);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.4);
-}
-
-.cup-layer{
-  position:absolute;
-  left:0;
-  width:100%;
-  transition:
-    height .45s ease,
-    background .45s ease,
-    opacity .3s ease;
-}
-
-.base-bottom{
-  bottom:0;
-  height:35%;
-  background:#f3ecdf;
-}
-
-.fruit-layer{
-  bottom:35%;
-  height:30%;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  align-content:center;
-  flex-wrap:wrap;
-  gap:5px;
-  padding:6px;
-  overflow:hidden;
-}
-
-.base-top{
-  bottom:65%;
-  height:35%;
-  background:#f3ecdf;
-}
-
-.fruit-piece{
-  font-size:30px;
-  line-height:1;
-  animation:fruitPop .28s ease;
-}
-
-@keyframes fruitPop{
-  from{
-    transform:scale(.25) translateY(-10px);
-    opacity:0;
-  }
-  to{
-    transform:scale(1) translateY(0);
-    opacity:1;
-  }
-}
-
-/* Logo transparente sobre vaso */
-
-.cup-logo{
-  position:absolute;
-  z-index:10;
-  left:50%;
-  top:48%;
-  transform:translate(-50%,-50%);
-  width:104px;
-  height:104px;
-  border:2px solid #111;
-  border-radius:50%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  background:rgba(255,255,255,.10);
-  backdrop-filter:blur(1px);
-  pointer-events:none;
-}
-
-.cup-logo strong{
-  font-size:17px;
-  line-height:1;
-}
-
-.cup-logo span{
-  font-size:4px;
-  margin-top:5px;
-  font-weight:700;
-  white-space:nowrap;
-}
-
-/* Vaso toppings */
-
-.topping-cup{
-  height:175px;
-  border:3px solid #aaa;
-  border-radius:14px 14px 28px 28px;
-  background:rgba(255,255,255,.8);
-  display:flex;
-  flex-wrap:wrap;
-  align-content:flex-end;
-  justify-content:center;
-  gap:4px;
-  padding:10px;
-  overflow:hidden;
-}
-
-.topping-piece{
-  font-size:25px;
-  animation:toppingPop .25s ease;
-}
-
-@keyframes toppingPop{
-  from{
-    transform:translateY(-20px) scale(.5);
-    opacity:0;
-  }
-  to{
-    transform:translateY(0) scale(1);
-    opacity:1;
-  }
-}
-
-/* Miel */
-
-.honey-cup{
-  height:82px;
-  border:3px solid #aaa;
-  border-radius:11px 11px 20px 20px;
-  position:relative;
-  overflow:hidden;
-  background:#fff;
-}
-
-.honey-fill{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height:64%;
-  background:linear-gradient(#e8a63b,#d88b16);
-}
-
-.honey-label{
-  position:absolute;
-  top:7px;
-  left:0;
-  right:0;
-  font-size:11px;
-}
-
-.stage-caption{
-  margin-top:8px;
-  font-size:10px;
-  line-height:1.25;
-  font-weight:700;
-}
-
-/* =========================
-   SECCIONES
-========================= */
-
-.section{
-  border-top:1px solid var(--line);
-  padding:24px 0;
-}
-
-.section-title{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  margin-bottom:6px;
-}
-
-.step{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:#111;
-  color:#fff;
-  display:grid;
-  place-items:center;
-  font-size:18px;
-  font-weight:800;
-  flex:none;
-}
-
-.section h2{
-  margin:0;
-  font-size:25px;
-}
-
-.help{
-  margin:0 0 14px 52px;
-  color:var(--gray);
-  font-size:14px;
-}
-
-/* =========================
-   OPCIONES
-========================= */
-
-.option-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:10px;
-}
-
-.option{
-  position:relative;
-  border:1px solid #d1d1d1;
-  background:#fff;
-  border-radius:17px;
-  padding:15px 13px;
-  min-height:68px;
-  text-align:left;
-  transition:.15s ease;
-  color:#111;
-}
-
-.option.active{
-  border:2px solid #111;
-  background:#fafafa;
-  font-weight:700;
-}
-
-.option-icon{
-  font-size:25px;
-  margin-bottom:6px;
-  display:block;
-}
-
-.option-check{
-  position:absolute;
-  right:9px;
-  top:9px;
-  width:22px;
-  height:22px;
-  border-radius:50%;
-  border:1px solid #bbb;
-  display:grid;
-  place-items:center;
-  font-size:13px;
-}
-
-.option.active .option-check{
-  background:#111;
-  border-color:#111;
-  color:#fff;
-}
-
-.option-description{
-  display:block;
-  color:#777;
-  font-size:12px;
-  margin-top:4px;
-  font-weight:400;
-}
-
-/* =========================
-   CANTIDAD
-========================= */
-
-.quantity-box{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  background:var(--light);
-  border-radius:18px;
-  padding:14px;
-}
-
-.quantity-controls{
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
-
-.qty-button{
-  width:46px;
-  height:46px;
-  border-radius:50%;
-  border:1px solid #bbb;
-  background:#fff;
-  font-size:26px;
-}
-
-.qty-value{
-  font-size:24px;
-  min-width:30px;
-  text-align:center;
-  font-weight:800;
-}
-
-.qty-price{
-  font-size:20px;
-  font-weight:800;
-}
-
-/* =========================
-   BOTONES
-========================= */
-
-.primary{
-  width:100%;
-  border:none;
-  background:#111;
-  color:#fff;
-  padding:16px 18px;
-  border-radius:15px;
-  font-weight:800;
-  font-size:16px;
-}
-
-.secondary{
-  border:1px solid #ccc;
-  background:#fff;
-  color:#111;
-  padding:10px 13px;
-  border-radius:12px;
-  font-weight:700;
-}
-
-.whatsapp{
-  width:100%;
-  border:none;
-  background:var(--green);
-  color:#fff;
-  padding:17px 18px;
-  border-radius:16px;
-  font-weight:800;
-  font-size:18px;
-  margin-top:14px;
-}
-
-/* =========================
-   CARRITO
-========================= */
-
-.cart-empty{
-  color:#777;
-  text-align:center;
-  padding:22px 10px;
-}
-
-.cart-item{
-  border:1px solid #ddd;
-  border-radius:16px;
-  padding:14px;
-  margin-top:10px;
-}
-
-.cart-top{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.cart-item h3{
-  margin:0 0 8px;
+.sub{
+  color:#6d6d6d;
   font-size:17px;
 }
-
-.cart-item p{
-  margin:4px 0;
-  color:#666;
-  font-size:13px;
-  line-height:1.35;
-}
-
-.remove-btn{
-  border:none;
-  background:transparent;
-  color:#a00000;
-  font-weight:700;
-  padding:4px;
-}
-
-.cart-price{
-  margin-top:10px;
-  font-weight:800;
-}
-
-.cart-total{
+.badges{
   display:flex;
-  justify-content:space-between;
-  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
   margin-top:18px;
-  font-size:22px;
+}
+.badge{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:100px;
+  padding:9px 13px;
+  font-size:13px;
+  font-weight:700;
+}
+
+/* ILUSTRACIÓN */
+.visual{
+  margin-top:22px;
+  height:270px;
+  border-radius:32px;
+  background:var(--soft);
+  position:relative;
+  overflow:hidden;
+}
+.cup{
+  position:absolute;
+  width:145px;
+  height:220px;
+  left:22px;
+  bottom:-5px;
+  border:5px solid #aaa;
+  border-radius:25px 25px 40px 40px;
+  background:
+    linear-gradient(
+      to bottom,
+      #f0e5d2 0 38%,
+      #e76562 38% 52%,
+      #f0e5d2 52% 100%
+    );
+}
+.cuplogo{
+  position:absolute;
+  width:80px;
+  height:80px;
+  border:2px solid #111;
+  background:white;
+  border-radius:50%;
+  left:32px;
+  top:75px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  font-size:13px;
   font-weight:900;
 }
-
-/* =========================
-   FORMULARIO
-========================= */
-
-.field{
-  margin-top:10px;
+.cuplogo small{font-size:4px;margin-top:3px}
+.topcup{
+  position:absolute;
+  width:88px;
+  height:135px;
+  left:185px;
+  bottom:5px;
+  border:5px solid #aaa;
+  border-radius:20px 20px 35px 35px;
+  background:white;
+}
+.topcup:after{
+  content:"TOPPINGS";
+  position:absolute;
+  width:100%;
+  text-align:center;
+  top:55px;
+  font-size:9px;
+  font-weight:800;
+}
+.honey{
+  position:absolute;
+  width:55px;
+  height:90px;
+  right:15px;
+  bottom:5px;
+  border:5px solid #aaa;
+  border-radius:17px 17px 25px 25px;
+  background:linear-gradient(#fff 0 35%,#e1a13c 35%);
+}
+.honey:after{
+  content:"MIEL";
+  position:absolute;
+  top:9px;
+  width:100%;
+  text-align:center;
+  font-size:10px;
 }
 
-.field label{
-  display:block;
+/* CONTENIDO */
+.builder{
+  max-width:700px;
+  margin:auto;
+  padding:10px 20px 30px;
+}
+.step{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:25px;
+  padding:22px;
+  margin:14px 0;
+}
+.stepnum{
+  display:inline-flex;
+  width:30px;
+  height:30px;
+  align-items:center;
+  justify-content:center;
+  background:var(--black);
+  color:white;
+  border-radius:50%;
+  font-weight:800;
+  margin-right:7px;
+}
+.step h2{
+  display:inline;
+  font-size:21px;
+}
+.hint{
+  color:var(--gray);
   font-size:13px;
+  margin:10px 0 15px;
+}
+.options{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+.option{
+  border:1.5px solid var(--line);
+  background:#fff;
+  border-radius:16px;
+  padding:15px 10px;
+  text-align:center;
+  transition:.15s;
   font-weight:700;
+}
+.option small{
+  display:block;
+  color:#888;
+  font-size:11px;
+  margin-top:4px;
+}
+.option.selected{
+  border:2px solid var(--green);
+  background:#edf4ee;
+  transform:scale(.99);
+}
+.emoji{
+  display:block;
+  font-size:30px;
   margin-bottom:6px;
 }
 
-input,
-textarea{
-  width:100%;
-  border:1px solid #ccc;
-  border-radius:13px;
-  padding:14px;
-  background:#fff;
-  font-size:16px;
-  color:#111;
+/* CANTIDAD */
+.qty{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border:1px solid var(--line);
+  padding:10px 12px;
+  border-radius:16px;
 }
-
-textarea{
-  min-height:90px;
-  resize:vertical;
+.qtycontrol{
+  display:flex;
+  align-items:center;
+  gap:18px;
 }
-
-.hidden{
-  display:none;
+.qtycontrol button{
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:#111;
+  color:white;
+  font-size:22px;
 }
+.qtycontrol strong{font-size:20px}
 
-/* =========================
-   RESUMEN
-========================= */
-
-.summary-box{
-  background:var(--light);
-  border-radius:18px;
-  padding:16px;
-  white-space:pre-line;
-  color:#444;
-  line-height:1.5;
+/* RESUMEN */
+.summary{
+  background:var(--black);
+  color:white;
+  border-radius:25px;
+  padding:22px;
+  margin-top:15px;
+}
+.summary h3{margin:0 0 12px}
+.summary p{
+  margin:7px 0;
+  color:#ddd;
   font-size:14px;
 }
-
-.summary-total{
-  font-size:28px;
-  color:#111;
+.summary .price{
+  font-size:30px;
+  color:white;
   font-weight:900;
   margin-top:15px;
 }
+.add{
+  width:100%;
+  border:0;
+  border-radius:16px;
+  background:var(--orange);
+  padding:16px;
+  font-weight:900;
+  margin-top:15px;
+  color:#111;
+}
 
-/* =========================
-   BARRA INFERIOR
-========================= */
+/* CARRITO */
+.cart{
+  display:none;
+  max-width:700px;
+  margin:0 auto;
+  padding:20px;
+}
+.cart.show{display:block}
+.cart h2{font-size:32px}
+.cartitem{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  margin:10px 0;
+}
+.cartitem strong{font-size:16px}
+.cartitem p{
+  color:#777;
+  font-size:13px;
+  line-height:1.5;
+}
+.remove{
+  border:0;
+  background:none;
+  text-decoration:underline;
+  color:#777;
+  padding:0;
+}
 
-.bottom-bar{
+/* DATOS */
+.form{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:25px;
+  padding:20px;
+  margin-top:20px;
+}
+.form h3{margin-top:0}
+input,textarea{
+  width:100%;
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:13px;
+  margin:6px 0;
+  background:#fafafa;
+}
+textarea{
+  min-height:85px;
+  resize:vertical;
+}
+.toggle{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin:12px 0;
+}
+.toggle button{
+  padding:13px 5px;
+  border-radius:13px;
+  border:1px solid var(--line);
+  background:white;
+  font-weight:700;
+}
+.toggle button.active{
+  background:#111;
+  color:white;
+  border-color:#111;
+}
+.send{
+  width:100%;
+  border:0;
+  background:#25D366;
+  color:white;
+  font-weight:900;
+  padding:17px;
+  border-radius:16px;
+  margin-top:12px;
+  font-size:16px;
+}
+
+/* BARRA INFERIOR */
+.bottom{
   position:fixed;
   left:0;
   right:0;
   bottom:0;
-  z-index:50;
-  background:rgba(255,255,255,.96);
-  border-top:1px solid #ddd;
-  padding:10px 16px calc(10px + env(safe-area-inset-bottom));
-  backdrop-filter:blur(12px);
-}
-
-.bottom-inner{
-  max-width:760px;
-  margin:auto;
+  background:rgba(255,250,242,.96);
+  backdrop-filter:blur(15px);
+  border-top:1px solid var(--line);
+  padding:12px 18px calc(12px + env(safe-area-inset-bottom));
+  z-index:20;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:14px;
+  gap:15px;
 }
-
-.bottom-price small{
+.totalbox{min-width:85px}
+.totalbox small{
   display:block;
   color:#777;
-  font-size:10px;
   letter-spacing:1px;
 }
-
-.bottom-price strong{
-  font-size:23px;
-}
-
-.bottom-button{
+.totalbox strong{font-size:24px}
+.view{
   flex:1;
-  border:none;
+  border:0;
   background:#111;
   color:white;
-  border-radius:14px;
-  padding:15px;
+  padding:16px;
+  border-radius:18px;
+  font-weight:900;
+  font-size:16px;
+}
+.empty{
+  text-align:center;
+  color:#888;
+  padding:25px 5px;
+}
+.back{
+  border:0;
+  background:none;
+  padding:0;
   font-weight:800;
+  margin-bottom:10px;
 }
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:520px){
-
-  .app{
-    padding-left:16px;
-    padding-right:16px;
-  }
-
-  .brand-logo{
-    width:122px;
-    height:122px;
-  }
-
-  .hero h1{
-    font-size:44px;
-  }
-
-  .hero-sub{
-    font-size:16px;
-  }
-
-  .product-stage{
-    grid-template-columns:1.34fr .73fr .43fr;
-    padding:15px 10px;
-  }
-
-  .big-cup{
-    height:275px;
-  }
-
-  .topping-cup{
-    height:150px;
-  }
-
-  .honey-cup{
-    height:72px;
-  }
-
-  .cup-logo{
-    width:88px;
-    height:88px;
-  }
-
-  .cup-logo strong{
-    font-size:14px;
-  }
-
-  .option{
-    padding:13px 11px;
-    font-size:15px;
-  }
+.note{
+  font-size:12px;
+  color:#777;
+  text-align:center;
+  margin-top:15px;
 }
-
-@media(prefers-reduced-motion:reduce){
-  *{
-    scroll-behavior:auto !important;
-    animation:none !important;
-    transition:none !important;
-  }
+@media(min-width:600px){
+  .options{grid-template-columns:repeat(3,1fr)}
+  h1{font-size:62px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
-
-  <!-- LOGO -->
-  <div class="brand-logo">
+<header>
+  <div class="logo">
     <strong>DELEITE</strong>
     <span>RICO, FRESCO Y SALUDABLE</span>
   </div>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-kicker">ARMÁ EL TUYO</div>
-
-    <h1>
-      Tu vaso,<br>
-      tus reglas.
-    </h1>
-
-    <p class="hero-sub">
-      500 ml · $6.000 · Delivery sin costo
-    </p>
-  </section>
-
-  <!-- PRODUCTO -->
-  <section class="product-stage">
-
-    <div class="product-col">
-
-      <div class="big-cup">
-
-        <div
-          class="cup-layer base-bottom"
-          id="baseBottom">
-        </div>
-
-        <div
-          class="cup-layer fruit-layer"
-          id="fruitVisual">
-        </div>
-
-        <div
-          class="cup-layer base-top"
-          id="baseTop">
-        </div>
-
-        <div class="cup-logo">
-          <strong>DELEITE</strong>
-          <span>RICO, FRESCO Y SALUDABLE</span>
-        </div>
-
-      </div>
-
-      <div class="stage-caption">
-        BASE · FRUTA · BASE
-      </div>
-
-    </div>
-
-    <div class="product-col">
-
-      <div
-        class="topping-cup"
-        id="toppingVisual">
-      </div>
-
-      <div class="stage-caption">
-        TOPPINGS<br>APARTE
-      </div>
-
-    </div>
-
-    <div class="product-col">
-
-      <div class="honey-cup">
-
-        <div class="honey-label">
-          MIEL
-        </div>
-
-        <div class="honey-fill"></div>
-
-      </div>
-
-      <div class="stage-caption">
-        INCLUIDA
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- BASE -->
-  <section class="section">
-
-    <div class="section-title">
-      <div class="step">1</div>
-      <h2>Elegí tu base</h2>
-    </div>
-
-    <p class="help">
-      Elegí una opción.
-    </p>
-
-    <div
-      class="option-grid"
-      id="baseOptions">
-    </div>
-
-  </section>
-
-  <!-- FRUTAS -->
-  <section class="section">
-
-    <div class="section-title">
-      <div class="step">2</div>
-      <h2>Elegí tus frutas</h2>
-    </div>
-
-    <p class="help">
-      Podés elegir una o varias. No cambia el precio.
-    </p>
-
-    <div
-      class="option-grid"
-      id="fruitOptions">
-    </div>
-
-  </section>
-
-  <!-- TOPPINGS -->
-  <section class="section">
-
-    <div class="section-title">
-      <div class="step">3</div>
-      <h2>Elegí tus toppings</h2>
-    </div>
-
-    <p class="help">
-      Podés elegir uno, varios o ninguno. Van en un vasito aparte.
-    </p>
-
-    <div
-      class="option-grid"
-      id="toppingOptions">
-    </div>
-
-  </section>
-
-  <!-- CANTIDAD -->
-  <section class="section">
-
-    <div class="section-title">
-      <div class="step">4</div>
-      <h2>Cantidad</h2>
-    </div>
-
-    <p class="help">
-      Esta cantidad corresponde a vasos iguales.
-    </p>
-
-    <div class="quantity-box">
-
-      <div class="quantity-controls">
-
-        <button
-          class="qty-button"
-          id="minusQty"
-          type="button">
-          −
-        </button>
-
-        <div
-          class="qty-value"
-          id="quantityValue">
-          1
-        </div>
-
-        <button
-          class="qty-button"
-          id="plusQty"
-          type="button">
-          +
-        </button>
-
-      </div>
-
-      <div
-        class="qty-price"
-        id="currentSubtotal">
-        $6.000
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- AGREGAR -->
-  <section class="section">
-
-    <button
-      class="primary"
-      id="addToCart"
-      type="button">
-      Agregar este vaso al carrito
-    </button>
-
-  </section>
-
-  <!-- CARRITO -->
-  <section
-    class="section"
-    id="cartSection">
-
-    <div class="section-title">
-      <div class="step">5</div>
-      <h2>Tu carrito</h2>
-    </div>
-
-    <p class="help">
-      Podés agregar vasos con combinaciones diferentes.
-    </p>
-
-    <div id="cartItems"></div>
-
-    <div class="cart-total">
-      <span>Total</span>
-      <span id="cartTotal">$0</span>
-    </div>
-
-  </section>
-
-  <!-- PAGO -->
-  <section class="section">
-
-    <div class="section-title">
-      <div class="step">6</div>
-      <h2>Forma de pago</h2>
-    </div>
-
-    <p class="help">
-      Elegí cómo vas a pagar.
-    </p>
-
-    <div
-      class="option-grid"
-      id="paymentOptions">
-    </div>
-
-  </section>
-
-  <!-- ENTREGA -->
-  <section class="section">
-
-    <div class="section-title">
-      <div class="step">7</div>
-      <h2>Entrega</h2>
-    </div>
-
-    <p class="help">
-      El delivery no tiene costo adicional.
-    </p>
-
-    <div
-      class="option-grid"
-      id="deliveryOptions">
-    </div>
-
-    <div
-      id="deliveryFields"
-      class="hidden">
-
-      <div class="field">
-
-        <label for="address">
-          Dirección exacta *
-        </label>
-
-        <input
-          id="address"
-          type="text"
-          placeholder="Ej: San Martín 1234">
-
-      </div>
-
-      <div class="field">
-
-        <label for="reference">
-          Referencia del domicilio
-        </label>
-
-        <input
-          id="reference"
-          type="text"
-          placeholder="Ej: Casa blanca, portón negro">
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- CLIENTE -->
-  <section class="section">
-
-    <div class="section-title">
-      <div class="step">8</div>
-      <h2>Tus datos</h2>
-    </div>
-
-    <div class="field">
-
-      <label for="customerName">
-        Nombre *
-      </label>
-
-      <input
-        id="customerName"
-        type="text"
-        placeholder="Tu nombre">
-
-    </div>
-
-    <div class="field">
-
-      <label for="customerPhone">
-        Teléfono *
-      </label>
-
-      <input
-        id="customerPhone"
-        type="tel"
-        inputmode="tel"
-        placeholder="Tu número de teléfono">
-
-    </div>
-
-    <div class="field">
-
-      <label for="notes">
-        Observaciones
-      </label>
-
-      <textarea
-        id="notes"
-        placeholder="Opcional">
-      </textarea>
-
-    </div>
-
-  </section>
-
-  <!-- RESUMEN -->
-  <section class="section">
-
-    <div class="section-title">
-      <div class="step">9</div>
-      <h2>Resumen</h2>
-    </div>
-
-    <div
-      class="summary-box"
-      id="summary">
-      Todavía no agregaste vasos al carrito.
-    </div>
-
-    <button
-      class="whatsapp"
-      id="whatsappButton"
-      type="button">
-      Realizar pedido por WhatsApp
-    </button>
-
-  </section>
-
-</div>
-
-<!-- BARRA INFERIOR -->
-
-<div class="bottom-bar">
-
-  <div class="bottom-inner">
-
-    <div class="bottom-price">
-
-      <small>TOTAL</small>
-
-      <strong id="bottomTotal">
-        $0
-      </strong>
-
-    </div>
-
-    <button
-      class="bottom-button"
-      id="viewCartButton"
-      type="button">
-      Ver pedido
-    </button>
-
+</header>
+
+<section class="hero" id="builderTop">
+  <div class="kicker">ARMÁ EL TUYO</div>
+  <h1>Tu vaso.<br>Tu momento.</h1>
+  <div class="sub">Elegí lo que te gusta y nosotros lo preparamos fresco para vos.</div>
+
+  <div class="badges">
+    <div class="badge">🥣 500 ml</div>
+    <div class="badge">💵 $6.000</div>
+    <div class="badge">🛵 Delivery sin costo</div>
   </div>
 
+  <div class="visual">
+    <div class="cup">
+      <div class="cuplogo">
+        DELEITE
+        <small>RICO, FRESCO Y SALUDABLE</small>
+      </div>
+    </div>
+    <div class="topcup"></div>
+    <div class="honey"></div>
+  </div>
+</section>
+
+<main class="builder" id="builder">
+
+  <section class="step">
+    <span class="stepnum">1</span><h2>Elegí tu base</h2>
+    <div class="hint">La protagonista de tu vaso.</div>
+    <div class="options" id="bases">
+      <button class="option" data-value="Yogur griego">
+        <span class="emoji">🥛</span>Yogur griego
+        <small>Cremoso y artesanal</small>
+      </button>
+      <button class="option" data-value="Pudín de chía">
+        <span class="emoji">🌱</span>Pudín de chía
+        <small>Suave y fresco</small>
+      </button>
+    </div>
+  </section>
+
+  <section class="step">
+    <span class="stepnum">2</span><h2>Elegí tus frutas</h2>
+    <div class="hint">Podés elegir una o combinar varias.</div>
+    <div class="options multi" id="fruits">
+      <button class="option" data-value="Frutilla"><span class="emoji">🍓</span>Frutilla</button>
+      <button class="option" data-value="Banana"><span class="emoji">🍌</span>Banana</button>
+      <button class="option" data-value="Kiwi"><span class="emoji">🥝</span>Kiwi</button>
+      <button class="option" data-value="Durazno"><span class="emoji">🍑</span>Durazno</button>
+      <button class="option" data-value="Arándanos"><span class="emoji">🫐</span>Arándanos</button>
+    </div>
+  </section>
+
+  <section class="step">
+    <span class="stepnum">3</span><h2>Sumale toppings</h2>
+    <div class="hint">Elegí los que quieras. Los enviamos en un vasito aparte.</div>
+    <div class="options multi" id="toppings">
+      <button class="option" data-value="Granola"><span class="emoji">🥣</span>Granola</button>
+      <button class="option" data-value="Coco"><span class="emoji">🥥</span>Coco</button>
+      <button class="option" data-value="Chips de chocolate"><span class="emoji">🍫</span>Chips de chocolate</button>
+      <button class="option" data-value="Maní"><span class="emoji">🥜</span>Maní</button>
+    </div>
+    <div class="hint" style="margin-top:15px">🍯 La miel viene incluida y se entrega aparte.</div>
+  </section>
+
+  <section class="step">
+    <span class="stepnum">4</span><h2>Cantidad</h2>
+    <div class="hint">¿Cuántos vasos iguales querés?</div>
+    <div class="qty">
+      <strong>Vasos</strong>
+      <div class="qtycontrol">
+        <button onclick="changeQty(-1)">−</button>
+        <strong id="qty">1</strong>
+        <button onclick="changeQty(1)">+</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="summary">
+    <h3>Tu DELEITE</h3>
+    <p id="sumBase">Base: todavía no elegiste</p>
+    <p id="sumFruit">Frutas: todavía no elegiste</p>
+    <p id="sumTop">Toppings: ninguno</p>
+    <p>🍯 Miel incluida aparte</p>
+    <p>🛵 Delivery sin costo</p>
+    <div class="price" id="productPrice">$6.000</div>
+    <button class="add" onclick="addToCart()">Agregar al pedido</button>
+  </div>
+
+</main>
+
+<section class="cart" id="cart">
+  <button class="back" onclick="showBuilder()">← Seguir armando</button>
+  <h2>Tu pedido</h2>
+  <div id="cartItems"></div>
+
+  <div class="form">
+    <h3>¿Cómo te lo entregamos?</h3>
+
+    <div class="toggle">
+      <button id="deliveryBtn" class="active" onclick="setDelivery('Delivery')">🛵 Delivery</button>
+      <button id="pickupBtn" onclick="setDelivery('Retiro')">🏠 Retiro</button>
+    </div>
+
+    <input id="name" placeholder="Tu nombre">
+    <input id="phone" placeholder="Tu teléfono" inputmode="tel">
+
+    <div id="addressFields">
+      <input id="address" placeholder="Dirección">
+      <input id="reference" placeholder="Referencia / barrio (opcional)">
+    </div>
+
+    <h3 style="margin-top:20px">Forma de pago</h3>
+    <div class="toggle">
+      <button id="cashBtn" class="active" onclick="setPayment('Efectivo')">💵 Efectivo</button>
+      <button id="transferBtn" onclick="setPayment('Transferencia')">📲 Transferencia</button>
+    </div>
+
+    <textarea id="notes" placeholder="¿Querés aclararnos algo? (opcional)"></textarea>
+
+    <button class="send" onclick="sendWhatsApp()">Enviar pedido por WhatsApp</button>
+    <div class="note">Al tocar el botón se abrirá WhatsApp con tu pedido listo para enviar.</div>
+  </div>
+</section>
+
+<div class="bottom">
+  <div class="totalbox">
+    <small>TOTAL</small>
+    <strong id="total">$0</strong>
+  </div>
+  <button class="view" onclick="showCart()">Ver pedido · <span id="count">0</span></button>
 </div>
 
 <script>
+const PRICE=6000;
+let qty=1;
+let cart=[];
+let delivery="Delivery";
+let payment="Efectivo";
 
-/* =========================
-   CONFIGURACIÓN
-========================= */
-
-const PRICE = 6000;
-
-const WHATSAPP_NUMBER =
-"5493865341241";
-
-const bases = [
-  {
-    name:"Yogur griego",
-    description:"Cremoso y artesanal"
-  },
-  {
-    name:"Pudín de chía",
-    description:"Textura suave con semillas de chía"
-  }
-];
-
-const fruits = [
-  {
-    name:"Arándano",
-    icon:"🫐"
-  },
-  {
-    name:"Frutilla",
-    icon:"🍓"
-  },
-  {
-    name:"Durazno",
-    icon:"🍑"
-  },
-  {
-    name:"Banana",
-    icon:"🍌"
-  },
-  {
-    name:"Kiwi",
-    icon:"🥝"
-  }
-];
-
-const toppings = [
-  {
-    name:"Granola",
-    icon:"🥣"
-  },
-  {
-    name:"Cereales sin azúcar",
-    icon:"⭕"
-  },
-  {
-    name:"Frutos secos",
-    icon:"🥜"
-  },
-  {
-    name:"Avena",
-    icon:"🌾"
-  }
-];
-
-const payments = [
-  "Transferencia",
-  "Efectivo"
-];
-
-const deliveries = [
-  "Lo vengo a buscar",
-  "Delivery sin costo"
-];
-
-/* =========================
-   ESTADO
-========================= */
-
-const state = {
-
-  base:"Yogur griego",
-
-  fruits:new Set(),
-
-  toppings:new Set(),
-
-  quantity:1,
-
-  payment:"",
-
-  delivery:"",
-
-  cart:[]
-
-};
-
-/* =========================
-   FORMATO DINERO
-========================= */
-
-function money(value){
-
-  return "$" +
-  Number(value)
-  .toLocaleString("es-AR");
-
+function money(n){
+  return "$"+n.toLocaleString("es-AR");
 }
 
-/* =========================
-   CREAR OPCIONES
-========================= */
-
-function createOptionButton(
-  item,
-  type,
-  multiple
-){
-
-  const name =
-  typeof item === "string"
-  ? item
-  : item.name;
-
-  const button =
-  document.createElement("button");
-
-  button.type="button";
-
-  button.className="option";
-
-  button.dataset.name=name;
-
-  if(
-    typeof item !== "string"
-    &&
-    item.icon
-  ){
-
-    const icon =
-    document.createElement("span");
-
-    icon.className=
-    "option-icon";
-
-    icon.textContent=
-    item.icon;
-
-    button.appendChild(icon);
-
-  }
-
-  const title =
-  document.createElement("strong");
-
-  title.textContent=name;
-
-  button.appendChild(title);
-
-  if(
-    typeof item !== "string"
-    &&
-    item.description
-  ){
-
-    const desc =
-    document.createElement("span");
-
-    desc.className=
-    "option-description";
-
-    desc.textContent=
-    item.description;
-
-    button.appendChild(desc);
-
-  }
-
-  const check =
-  document.createElement("span");
-
-  check.className=
-  "option-check";
-
-  check.textContent="✓";
-
-  button.appendChild(check);
-
-  button.addEventListener(
-    "click",
-    function(){
-
-      if(multiple){
-
-        const set =
-        state[type];
-
-        if(
-          set.has(name)
-        ){
-
-          set.delete(name);
-
-        }else{
-
-          set.add(name);
-
-        }
-
-      }else{
-
-        state[type]=name;
-
-      }
-
-      render();
-
-    }
-  );
-
-  return button;
-
+function selectedValues(id){
+  return [...document.querySelectorAll("#"+id+" .selected")]
+    .map(x=>x.dataset.value);
 }
 
-/* =========================
-   RENDER OPCIONES
-========================= */
+document.querySelectorAll("#bases .option").forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll("#bases .option").forEach(x=>x.classList.remove("selected"));
+    btn.classList.add("selected");
+    updateSummary();
+  };
+});
 
-function buildOptions(){
+document.querySelectorAll(".multi .option").forEach(btn=>{
+  btn.onclick=()=>{
+    btn.classList.toggle("selected");
+    updateSummary();
+  };
+});
 
-  const baseBox =
-  document
-  .getElementById(
-    "baseOptions"
-  );
-
-  bases.forEach(
-    item=>{
-
-      baseBox.appendChild(
-        createOptionButton(
-          item,
-          "base",
-          false
-        )
-      );
-
-    }
-  );
-
-  const fruitBox =
-  document
-  .getElementById(
-    "fruitOptions"
-  );
-
-  fruits.forEach(
-    item=>{
-
-      fruitBox.appendChild(
-        createOptionButton(
-          item,
-          "fruits",
-          true
-        )
-      );
-
-    }
-  );
-
-  const toppingBox =
-  document
-  .getElementById(
-    "toppingOptions"
-  );
-
-  toppings.forEach(
-    item=>{
-
-      toppingBox.appendChild(
-        createOptionButton(
-          item,
-          "toppings",
-          true
-        )
-      );
-
-    }
-  );
-
-  const paymentBox =
-  document
-  .getElementById(
-    "paymentOptions"
-  );
-
-  payments.forEach(
-    item=>{
-
-      paymentBox.appendChild(
-        createOptionButton(
-          item,
-          "payment",
-          false
-        )
-      );
-
-    }
-  );
-
-  const deliveryBox =
-  document
-  .getElementById(
-    "deliveryOptions"
-  );
-
-  deliveries.forEach(
-    item=>{
-
-      deliveryBox.appendChild(
-        createOptionButton(
-          item,
-          "delivery",
-          false
-        )
-      );
-
-    }
-  );
-
+function changeQty(n){
+  qty=Math.max(1,qty+n);
+  document.getElementById("qty").textContent=qty;
+  updateSummary();
 }
 
-/* =========================
-   MARCAR SELECCIONES
-========================= */
+function updateSummary(){
+  const base=selectedValues("bases")[0];
+  const fruits=selectedValues("fruits");
+  const tops=selectedValues("toppings");
 
-function updateActiveButtons(
-  containerId,
-  tester
-){
+  document.getElementById("sumBase").textContent=
+    "Base: "+(base||"todavía no elegiste");
 
-  const buttons =
-  document
-  .querySelectorAll(
-    "#" +
-    containerId +
-    " .option"
-  );
+  document.getElementById("sumFruit").textContent=
+    "Frutas: "+(fruits.length?fruits.join(", "):"todavía no elegiste");
 
-  buttons.forEach(
-    button=>{
+  document.getElementById("sumTop").textContent=
+    "Toppings: "+(tops.length?tops.join(", "):"ninguno");
 
-      button
-      .classList
-      .toggle(
-        "active",
-        tester(
-          button.dataset.name
-        )
-      );
-
-    }
-  );
-
+  document.getElementById("productPrice").textContent=
+    money(PRICE*qty);
 }
 
-/* =========================
-   ANIMACIÓN PRODUCTO
-========================= */
-
-function renderProduct(){
-
-  const bottom =
-  document
-  .getElementById(
-    "baseBottom"
-  );
-
-  const top =
-  document
-  .getElementById(
-    "baseTop"
-  );
-
-  if(
-    state.base ===
-    "Pudín de chía"
-  ){
-
-    const chia =
-    "repeating-radial-gradient(circle at 4px 4px,#555 0 1px,#e8e0d2 1.8px 8px)";
-
-    bottom.style.background=
-    chia;
-
-    top.style.background=
-    chia;
-
-  }else{
-
-    bottom.style.background=
-    "#f3ecdf";
-
-    top.style.background=
-    "#f3ecdf";
-
-  }
-
-  const fruitVisual =
-  document
-  .getElementById(
-    "fruitVisual"
-  );
-
-  fruitVisual.innerHTML="";
-
-  fruits.forEach(
-    fruit=>{
-
-      if(
-        state.fruits.has(
-          fruit.name
-        )
-      ){
-
-        const piece =
-        document
-        .createElement("span");
-
-        piece.className=
-        "fruit-piece";
-
-        piece.textContent=
-        fruit.icon;
-
-        fruitVisual
-        .appendChild(piece);
-
-      }
-
-    }
-  );
-
-  const toppingVisual =
-  document
-  .getElementById(
-    "toppingVisual"
-  );
-
-  toppingVisual.innerHTML="";
-
-  toppings.forEach(
-    topping=>{
-
-      if(
-        state.toppings.has(
-          topping.name
-        )
-      ){
-
-        const piece =
-        document
-        .createElement("span");
-
-        piece.className=
-        "topping-piece";
-
-        piece.textContent=
-        topping.icon;
-
-        toppingVisual
-        .appendChild(piece);
-
-      }
-
-    }
-  );
-
-}
-
-/* =========================
-   CANTIDAD
-========================= */
-
-document
-.getElementById(
-  "minusQty"
-)
-.addEventListener(
-  "click",
-  function(){
-
-    state.quantity =
-    Math.max(
-      1,
-      state.quantity-1
-    );
-
-    render();
-
-  }
-);
-
-document
-.getElementById(
-  "plusQty"
-)
-.addEventListener(
-  "click",
-  function(){
-
-    state.quantity =
-    Math.min(
-      20,
-      state.quantity+1
-    );
-
-    render();
-
-  }
-);
-
-/* =========================
-   AGREGAR CARRITO
-========================= */
-
-document
-.getElementById(
-  "addToCart"
-)
-.addEventListener(
-  "click",
-  function(){
-
-    if(
-      state.fruits.size === 0
-    ){
-
-      alert(
-        "Elegí al menos una fruta."
-      );
-
-      return;
-
-    }
-
-    state.cart.push({
-
-      base:
-      state.base,
-
-      fruits:
-      Array.from(
-        state.fruits
-      ),
-
-      toppings:
-      Array.from(
-        state.toppings
-      ),
-
-      quantity:
-      state.quantity
-
-    });
-
-    state.fruits.clear();
-
-    state.toppings.clear();
-
-    state.quantity=1;
-
-    render();
-
-    document
-    .getElementById(
-      "cartSection"
-    )
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
-  }
-);
-
-/* =========================
-   CARRITO
-========================= */
-
-function renderCart(){
-
-  const box =
-  document
-  .getElementById(
-    "cartItems"
-  );
-
-  box.innerHTML="";
-
-  if(
-    state.cart.length === 0
-  ){
-
-    const empty =
-    document
-    .createElement("div");
-
-    empty.className=
-    "cart-empty";
-
-    empty.textContent=
-    "Tu carrito está vacío.";
-
-    box.appendChild(empty);
-
-  }else{
-
-    state.cart
-    .forEach(
-      function(
-        item,
-        index
-      ){
-
-        const card =
-        document
-        .createElement("div");
-
-        card.className=
-        "cart-item";
-
-        const top =
-        document
-        .createElement("div");
-
-        top.className=
-        "cart-top";
-
-        const title =
-        document
-        .createElement("h3");
-
-        title.textContent=
-        "Vaso " +
-        (index+1) +
-        " · " +
-        item.base +
-        " × " +
-        item.quantity;
-
-        const remove =
-        document
-        .createElement("button");
-
-        remove.type="button";
-
-        remove.className=
-        "remove-btn";
-
-        remove.textContent=
-        "Eliminar";
-
-        remove.addEventListener(
-          "click",
-          function(){
-
-            state.cart.splice(
-              index,
-              1
-            );
-
-            render();
-
-          }
-        );
-
-        top.appendChild(title);
-
-        top.appendChild(remove);
-
-        card.appendChild(top);
-
-        const fruitText =
-        document
-        .createElement("p");
-
-        fruitText.textContent=
-        "Frutas: " +
-        item.fruits.join(", ");
-
-        card.appendChild(
-          fruitText
-        );
-
-        const topText =
-        document
-        .createElement("p");
-
-        topText.textContent=
-        "Toppings: " +
-        (
-          item.toppings.length
-          ?
-          item.toppings.join(", ")
-          :
-          "Sin toppings"
-        );
-
-        card.appendChild(
-          topText
-        );
-
-        const honey =
-        document
-        .createElement("p");
-
-        honey.textContent=
-        "Miel incluida en botecito aparte.";
-
-        card.appendChild(
-          honey
-        );
-
-        const price =
-        document
-        .createElement("div");
-
-        price.className=
-        "cart-price";
-
-        price.textContent=
-        money(
-          item.quantity *
-          PRICE
-        );
-
-        card.appendChild(
-          price
-        );
-
-        box.appendChild(
-          card
-        );
-
-      }
-    );
-
-  }
-
-  const total =
-  getCartTotal();
-
-  document
-  .getElementById(
-    "cartTotal"
-  )
-  .textContent=
-  money(total);
-
-  document
-  .getElementById(
-    "bottomTotal"
-  )
-  .textContent=
-  money(total);
-
-}
-
-/* =========================
-   TOTAL
-========================= */
-
-function getCartTotal(){
-
-  return state.cart
-  .reduce(
-    function(
-      sum,
-      item
-    ){
-
-      return (
-        sum +
-        item.quantity *
-        PRICE
-      );
-
-    },
-    0
-  );
-
-}
-
-/* =========================
-   RESUMEN
-========================= */
-
-function renderSummary(){
-
-  const summary =
-  document
-  .getElementById(
-    "summary"
-  );
-
-  if(
-    state.cart.length === 0
-  ){
-
-    summary.textContent=
-    "Todavía no agregaste vasos al carrito.";
-
+function addToCart(){
+  const base=selectedValues("bases")[0];
+  const fruits=selectedValues("fruits");
+  const toppings=selectedValues("toppings");
+
+  if(!base){
+    alert("Primero elegí Yogur griego o Pudín de chía.");
+    document.getElementById("bases").scrollIntoView({behavior:"smooth"});
     return;
-
   }
 
-  let text="";
+  if(!fruits.length){
+    alert("Elegí al menos una fruta.");
+    document.getElementById("fruits").scrollIntoView({behavior:"smooth"});
+    return;
+  }
 
-  state.cart
-  .forEach(
-    function(
-      item,
-      index
-    ){
-
-      text +=
-      "VASO " +
-      (index+1) +
-      "\n";
-
-      text +=
-      "Base: " +
-      item.base +
-      "\n";
-
-      text +=
-      "Frutas: " +
-      item.fruits.join(", ") +
-      "\n";
-
-      text +=
-      "Toppings: " +
-      (
-        item.toppings.length
-        ?
-        item.toppings.join(", ")
-        :
-        "Sin toppings"
-      ) +
-      "\n";
-
-      text +=
-      "Miel: incluida aparte\n";
-
-      text +=
-      "Cantidad: " +
-      item.quantity +
-      "\n";
-
-      text +=
-      "Subtotal: " +
-      money(
-        item.quantity *
-        PRICE
-      ) +
-      "\n\n";
-
-    }
-  );
-
-  text +=
-  "TOTAL: " +
-  money(
-    getCartTotal()
-  );
-
-  summary.textContent=text;
-
-}
-
-/* =========================
-   DELIVERY
-========================= */
-
-function renderDelivery(){
-
-  const fields =
-  document
-  .getElementById(
-    "deliveryFields"
-  );
-
-  fields
-  .classList
-  .toggle(
-    "hidden",
-    state.delivery !==
-    "Delivery sin costo"
-  );
-
-}
-
-/* =========================
-   RENDER GENERAL
-========================= */
-
-function render(){
-
-  updateActiveButtons(
-    "baseOptions",
-    function(name){
-
-      return (
-        name ===
-        state.base
-      );
-
-    }
-  );
-
-  updateActiveButtons(
-    "fruitOptions",
-    function(name){
-
-      return (
-        state.fruits
-        .has(name)
-      );
-
-    }
-  );
-
-  updateActiveButtons(
-    "toppingOptions",
-    function(name){
-
-      return (
-        state.toppings
-        .has(name)
-      );
-
-    }
-  );
-
-  updateActiveButtons(
-    "paymentOptions",
-    function(name){
-
-      return (
-        name ===
-        state.payment
-      );
-
-    }
-  );
-
-  updateActiveButtons(
-    "deliveryOptions",
-    function(name){
-
-      return (
-        name ===
-        state.delivery
-      );
-
-    }
-  );
-
-  document
-  .getElementById(
-    "quantityValue"
-  )
-  .textContent=
-  state.quantity;
-
-  document
-  .getElementById(
-    "currentSubtotal"
-  )
-  .textContent=
-  money(
-    state.quantity *
-    PRICE
-  );
-
-  renderProduct();
+  cart.push({
+    base,
+    fruits:[...fruits],
+    toppings:[...toppings],
+    qty
+  });
 
   renderCart();
-
-  renderDelivery();
-
-  renderSummary();
-
+  resetBuilder();
+  showCart();
 }
 
-/* =========================
-   VER CARRITO
-========================= */
+function resetBuilder(){
+  document.querySelectorAll(".option.selected").forEach(x=>x.classList.remove("selected"));
+  qty=1;
+  document.getElementById("qty").textContent=1;
+  updateSummary();
+}
 
-document
-.getElementById(
-  "viewCartButton"
-)
-.addEventListener(
-  "click",
-  function(){
+function renderCart(){
+  const box=document.getElementById("cartItems");
 
-    document
-    .getElementById(
-      "cartSection"
-    )
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
+  if(!cart.length){
+    box.innerHTML='<div class="empty">Todavía no agregaste ningún vaso.</div>';
+  }else{
+    box.innerHTML=cart.map((item,i)=>`
+      <div class="cartitem">
+        <strong>${item.qty} × ${item.base}</strong>
+        <p>
+          Frutas: ${item.fruits.join(", ")}<br>
+          Toppings: ${item.toppings.length?item.toppings.join(", "):"Sin toppings"}<br>
+          Miel: incluida aparte<br>
+          Subtotal: ${money(item.qty*PRICE)}
+        </p>
+        <button class="remove" onclick="removeItem(${i})">Eliminar</button>
+      </div>
+    `).join("");
   }
-);
 
-/* =========================
-   WHATSAPP
-========================= */
+  const count=cart.reduce((a,x)=>a+x.qty,0);
+  const total=count*PRICE;
 
-document
-.getElementById(
-  "whatsappButton"
-)
-.addEventListener(
-  "click",
-  function(){
+  document.getElementById("count").textContent=count;
+  document.getElementById("total").textContent=money(total);
+}
 
-    const customerName =
-    document
-    .getElementById(
-      "customerName"
-    )
-    .value
-    .trim();
+function removeItem(i){
+  cart.splice(i,1);
+  renderCart();
+}
 
-    const customerPhone =
-    document
-    .getElementById(
-      "customerPhone"
-    )
-    .value
-    .trim();
+function showCart(){
+  document.getElementById("builder").style.display="none";
+  document.querySelector(".hero").style.display="none";
+  document.querySelector("header").style.display="none";
+  document.getElementById("cart").classList.add("show");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
 
-    const address =
-    document
-    .getElementById(
-      "address"
-    )
-    .value
-    .trim();
+function showBuilder(){
+  document.getElementById("builder").style.display="block";
+  document.querySelector(".hero").style.display="block";
+  document.querySelector("header").style.display="block";
+  document.getElementById("cart").classList.remove("show");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
 
-    const reference =
-    document
-    .getElementById(
-      "reference"
-    )
-    .value
-    .trim();
+function setDelivery(type){
+  delivery=type;
 
-    const notes =
-    document
-    .getElementById(
-      "notes"
-    )
-    .value
-    .trim();
+  document.getElementById("deliveryBtn").classList.toggle("active",type==="Delivery");
+  document.getElementById("pickupBtn").classList.toggle("active",type==="Retiro");
 
-    if(
-      state.cart.length === 0
-    ){
+  document.getElementById("addressFields").style.display=
+    type==="Delivery"?"block":"none";
+}
 
-      alert(
-        "Primero agregá al menos un vaso al carrito."
-      );
+function setPayment(type){
+  payment=type;
 
-      return;
+  document.getElementById("cashBtn").classList.toggle("active",type==="Efectivo");
+  document.getElementById("transferBtn").classList.toggle("active",type==="Transferencia");
+}
 
-    }
-
-    if(
-      !state.payment
-    ){
-
-      alert(
-        "Elegí una forma de pago."
-      );
-
-      return;
-
-    }
-
-    if(
-      !state.delivery
-    ){
-
-      alert(
-        "Elegí una forma de entrega."
-      );
-
-      return;
-
-    }
-
-    if(
-      state.delivery ===
-      "Delivery sin costo"
-      &&
-      !address
-    ){
-
-      alert(
-        "Ingresá la dirección exacta para el delivery."
-      );
-
-      return;
-
-    }
-
-    if(
-      !customerName
-    ){
-
-      alert(
-        "Ingresá tu nombre."
-      );
-
-      return;
-
-    }
-
-    if(
-      !customerPhone
-    ){
-
-      alert(
-        "Ingresá tu teléfono."
-      );
-
-      return;
-
-    }
-
-    let products="";
-
-    state.cart
-    .forEach(
-      function(
-        item,
-        index
-      ){
-
-        products +=
-        "Vaso " +
-        (index+1) +
-        " — 500 ml\n";
-
-        products +=
-        "Base: " +
-        item.base +
-        "\n";
-
-        products +=
-        "Frutas: " +
-        item.fruits.join(", ") +
-        "\n";
-
-        products +=
-        "Toppings: " +
-        (
-          item.toppings.length
-          ?
-          item.toppings.join(", ")
-          :
-          "Sin toppings"
-        ) +
-        "\n";
-
-        products +=
-        "Miel: incluida en botecito aparte\n";
-
-        products +=
-        "Cantidad: " +
-        item.quantity +
-        "\n";
-
-        products +=
-        "Subtotal: " +
-        money(
-          item.quantity *
-          PRICE
-        ) +
-        "\n\n";
-
-      }
-    );
-
-    let message =
-    "Hola DELEITE 👋\n" +
-    "Quiero realizar un pedido.\n\n";
-
-    message += products;
-
-    message +=
-    "Forma de pago: " +
-    state.payment +
-    "\n";
-
-    message +=
-    "Entrega: " +
-    state.delivery +
-    "\n";
-
-    if(
-      state.delivery ===
-      "Delivery sin costo"
-    ){
-
-      message +=
-      "Dirección: " +
-      address +
-      "\n";
-
-      if(reference){
-
-        message +=
-        "Referencia: " +
-        reference +
-        "\n";
-
-      }
-
-    }
-
-    message +=
-    "Nombre: " +
-    customerName +
-    "\n";
-
-    message +=
-    "Teléfono: " +
-    customerPhone +
-    "\n";
-
-    if(notes){
-
-      message +=
-      "Observaciones: " +
-      notes +
-      "\n";
-
-    }
-
-    message +=
-    "\nTOTAL: " +
-    money(
-      getCartTotal()
-    );
-
-    const url =
-    "https://wa.me/" +
-    WHATSAPP_NUMBER +
-    "?text=" +
-    encodeURIComponent(
-      message
-    );
-
-    window.location.href=url;
-
+function sendWhatsApp(){
+  if(!cart.length){
+    alert("Primero agregá al menos un vaso al pedido.");
+    return;
   }
-);
 
-/* =========================
-   INICIAR
-========================= */
+  const name=document.getElementById("name").value.trim();
+  const phone=document.getElementById("phone").value.trim();
+  const address=document.getElementById("address").value.trim();
+  const reference=document.getElementById("reference").value.trim();
+  const notes=document.getElementById("notes").value.trim();
 
-buildOptions();
+  if(!name){
+    alert("Escribí tu nombre.");
+    return;
+  }
 
-render();
+  if(delivery==="Delivery" && !address){
+    alert("Escribí la dirección para el delivery.");
+    return;
+  }
 
+  let text="🥣 *NUEVO PEDIDO - DELEITE*%0A%0A";
+  text+="👤 *Cliente:* "+encodeURIComponent(name)+"%0A";
+
+  if(phone){
+    text+="📱 *Teléfono:* "+encodeURIComponent(phone)+"%0A";
+  }
+
+  text+="%0A";
+
+  cart.forEach((item,i)=>{
+    text+="*Vaso "+(i+1)+"*%0A";
+    text+="• Cantidad: "+item.qty+"%0A";
+    text+="• Base: "+encodeURIComponent(item.base)+"%0A";
+    text+="• Frutas: "+encodeURIComponent(item.fruits.join(", "))+"%0A";
+    text+="• Toppings: "+encodeURIComponent(item.toppings.length?item.toppings.join(", "):"Sin toppings")+"%0A";
+    text+="• Miel: incluida aparte%0A";
+    text+="• Subtotal: "+encodeURIComponent(money(item.qty*PRICE))+"%0A%0A";
+  });
+
+  text+="🚚 *Entrega:* "+delivery+"%0A";
+
+  if(delivery==="Delivery"){
+    text+="📍 *Dirección:* "+encodeURIComponent(address)+"%0A";
+    if(reference){
+      text+="🏘️ *Referencia:* "+encodeURIComponent(reference)+"%0A";
+    }
+  }
+
+  text+="💳 *Pago:* "+payment+"%0A";
+
+  if(notes){
+    text+="📝 *Aclaración:* "+encodeURIComponent(notes)+"%0A";
+  }
+
+  const total=cart.reduce((a,x)=>a+(x.qty*PRICE),0);
+  text+="%0A💰 *TOTAL: "+encodeURIComponent(money(total))+"*";
+  text+="%0A🛵 Delivery sin costo";
+
+  /* IMPORTANTE:
+     Si alguna vez cambia el número de WhatsApp,
+     se cambia solamente el número de abajo.
+  */
+  const whatsapp="5492615691126";
+
+  window.open("https://wa.me/"+whatsapp+"?text="+text,"_blank");
+}
+
+updateSummary();
+renderCart();
 </script>
 
 </body>
